@@ -1,0 +1,404 @@
+@font-face{
+    font-family: jumbotitle;
+    src: url(../fonts/aristotelica-smallcaps-regular.ttf);
+
+}
+@font-face{
+
+    font-family: subheading;
+    src: url(../fonts/aristotelica.display-trial-regular.ttf);
+}
+@font-face{
+
+    font-family: corticons;
+    src: url(../fonts/aristotelica.icons-extralight.ttf);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #E6F4F3;
+    font-family: 'calibri',Tahoma, Geneva, sans-serif;
+}
+#icon{
+    src: url("../images/newLogoFarbenBlau2.png");
+}
+.img-responsive{
+    src: url("../images/trialtools.jpg");
+}
+.hintergrund{
+
+    background-image: url(../images/background.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+.back{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+//   background-color: #E6F4F3;
+  z-index: -1;
+}
+.jumbocontainer{
+    padding: 5%;
+
+}
+.welcome-cover{
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+.jumbotitle{
+    font-family: jumbotitle, Tahoma, Geneva, sans-serif;
+}
+.jumbosub{
+    font-family: subheading, Tahoma, Geneva, sans-serif;
+}
+/* sollte später gelöscht werden */
+main{
+  
+  scroll-behavior: smooth;
+  position: absolute;
+  background-color: grey;
+  height: 100vh;
+  min-width: 100%;
+}
+.sectionheading{
+    visibility: hidden;
+}
+.flexcontainer{
+    background-color: white;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    justify-content:space-between;
+    min-width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.dashBtn{
+    font-family: corticons;
+    font-size: 40px;
+    color: rgb(74, 135, 146);
+}
+.userSec a:hover{
+    font-weight: bold;
+    color: rgb(74, 135, 146);
+}
+.menubtn {
+    src: url("../images/button_icon.png");
+    border-radius: 25px;
+    margin-right: 35px;
+    cursor: pointer;
+
+}
+.menubtn img:hover{
+    border:solid;
+    border-color: rgb(74, 135, 146);
+}
+#logo{
+    src: url("../images/newLogo.png");
+    width: 130px;
+    height: 70px;
+}
+
+#menubtn{
+    margin-top: 10px;
+    border-radius: 40px;
+    width: 30px;
+    height: 30px;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: rgb(230,244,243);
+    background-color: rgba(230,244,243, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color:  black;
+
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color:black;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+  .hello{
+    min-height:80vh;
+   
+    }
+  .jumbotron{
+    margin-top: 2em;
+    }
+    .marginimg{
+        width: 30px;
+        height: 300px;
+    }
+    #logo{
+        margin-top: 8px;
+        margin-left: 3px;
+        width: 60px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 5px}
+}
+@media screen and (max-width: 450px){
+    .overlay a {font-size: 30px}
+    .flexcontainer {position: relative;}
+    #menubtn{
+        width: 30px;
+        height: 30px;
+    }
+    #logo{
+        margin-top: 8px;
+        margin-left: 3px;
+        width: 60px;
+        height: 35px;
+    }
+    .hello{
+        max-width: 450px;
+        min-height: 94vh;
+    }
+    .jumbotron{
+        margin-top: 2em;
+        text-align: center;
+    }
+    .details{
+        max-width: 100%;
+        min-height: 100vh;
+    }
+    .marginimg{
+        width: 25px;
+        height: 250px;
+    }
+    .advantageImg{
+        margin-top: 10px;
+        width: 50%;
+        height:30%;
+    }
+}
+
+@media screen and (min-width: 450px){
+    .jumbotron{
+        margin-top: 15em;
+        }
+    .hello{
+        min-height: 100vh;
+        background-image: url('../images/background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .details{
+        max-width: 100%;
+        min-height: 100vh;
+    }
+    .advantage{
+        max-width: 100%;
+        min-height: 80vh;
+    }
+    .marginimg{
+        width: 30px;
+        height: 300px;
+    }
+    .advantageImg{
+        margin-top: 30px;
+        width: 30%;
+        height:50%;
+    }
+    #logo{
+        margin-top: 8px;
+        margin-left: 3px;
+        width: 100px;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 1020px){
+    .details{
+        max-width: 100%;
+        min-height: 100vh;
+    }
+    .advantage{
+        max-width: 100%;
+        min-height: 100vh;
+    }
+    .marginimg{
+    width: 45px;
+    height: 450px;
+    }
+    .advantageImg{
+        margin-top: 50px;
+        width: 80%;
+        height:80%;
+    }
+}
+.moreBtn {
+    font-size: 60px;
+    text-align: center;
+}
+.moreBtn .corticons{
+    color: rgb(88, 89, 91);
+}
+div .moreBtn a:hover{
+    color: rgb(88, 89, 91);
+    font-weight: bold;
+    text-decoration: none;
+}
+.jumbotext{
+    color: rgb(88, 89, 91);
+}
+.glyphicon-menu-down{
+    color: rgb(88, 89, 91);
+}
+.login-link {
+    border:solid;
+    border-color: rgb(168,170,173);
+    padding: 4px;
+}
+
+.margin{
+    margin-bottom: 40px;
+}
+.sizing{
+    padding-bottom: 40px;
+    padding-top: 70px;
+    margin-bottom: 40px;
+}
+.text{
+    font-size: 16px;
+}
+h2{
+    color: rgb(88, 89, 91);
+}
+h2.margin{
+    font-family: subheading, Tahoma, Geneva, sans-serif;
+    color: rgb(88, 89, 91);
+}
+
+.bg-footer{
+    background-color: rgb(88, 89, 91);
+    color: rgb(230, 244, 243);
+    padding:5px;
+}
+.bg1{
+    background-color: rgb(74, 135, 146);
+}
+.bg1-info{
+    
+    background-color: rgb(230, 244, 243);
+}
+.bg2{
+    
+    background-color: rgb(137, 209, 206);
+}
+h2.txt2{
+    font-family: subheading, Tahoma, Geneva, sans-serif;
+    color: rgb(230, 244, 243);
+}
+.bg3{
+   
+    background-color: rgb(206, 235, 233);
+}
+
+.cards{
+    margin-top: 70px;
+}
+
+.groups{
+    min-height: 100vh;
+    max-width: 100%;
+}
+
+.flexcontent{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul li a {
+    color: rgb(206, 235, 233);
+}
+footer ul li a:hover, footer ul li a:focus {
+    color: rgb(74, 135, 146);
+}
+.zentrieren{
+    margin:20%;
+}
+
+.abstand{
+    
+    margin: 20% 0 20% 0;
+}
+.corticons{
+    font-family: corticons;
+}
+
+.btn-login{
+    background-color: rgb(74, 135, 146);
+    color: rgb(206, 235, 233);
+}
+
+.index-text{
+    color: rgb(88, 89, 91);
+}
+div div div h3 a:hover{
+    color: black;
+}
+
+.message-alert{
+    background: rgba(223, 38, 5, 0.6);
+    color: white;
+}
+.message-success{
+    background: rgb(137, 209, 206);
+    color: white;
+}

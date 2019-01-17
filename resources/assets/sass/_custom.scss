@@ -1,0 +1,40 @@
+
+body { padding-right: 0 !important }
+.modal-open {
+    padding-right: 0px !important;
+}
+
+.create-button{
+    background-color: rgb(74, 135, 146);
+    color: rgb(230, 244, 243);
+}
+
+.delete-button{
+    background-color: tomato;
+    color: rgb(230, 244, 243);
+}
+
+.card-text{
+    color: rgb(88, 89, 91);
+}
+
+tr td a:hover{
+    color: black;
+}
+
+.submit-button{
+    background-color: rgb(137, 209, 206);
+    color: rgb(88, 89, 91);
+}
+
+.cancel-button{
+    background-color: rgb(88, 89, 91);
+    color: rgb(230, 244, 243);
+    text-decoration: none;
+}
+
+.normal-button{
+    background-color: rgb(230, 244, 243);
+    color: rgb(74, 135, 146);
+}
+
