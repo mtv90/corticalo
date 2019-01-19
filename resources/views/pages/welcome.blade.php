@@ -1,21 +1,60 @@
 @extends('layouts.index-template')
 
 @section('content')
+@section('title')
+{{ config('app.name', 'corticalo') }} | Willkommen
+@stop
 <div class="welcome-cover">
     <div id="particles-js" class="back"></div>
     <div class="container">
         <div class="jumbocontainer">
-            <div class="jumbotron jumbotext">
-                <h1 class="jumbotitle">Medizin von morgen schon heute erleben</h1>
-                <h3 class="jumbosub">mit <b>corticalo</b> effizienter klinische Studien planen, durchführen und auswerten</h3>        
-            </div>
-        </div>
-        <div class="moreBtn">
-            <a href="#details" class="corticons"><i class="fa fa-angle-down"></i></a>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="jumbotron jumbotext">
+                            <h1 class="jumbotitle"><strong>Medizin von morgen schon heute erleben</strong></h1>
+                            <h3 class="lead">mit <strong>corticalo</strong> <em>effizienter klinische Studien planen, durchführen und auswerten</em></h3>
+                            <hr class="my-4">
+                            <p class="row justify-content-md-center">
+                                <a title="Über uns und unser Nutzenversprechen" href="{{ url('/about') }}" role="button" class="btn btn-sm btn-outline-dark">mehr erfahren</a>
+                            </p>
+                        </div> 
+                    </div>
+                    <div class="carousel-item">
+                        <div class="jumbotron jumbotext">
+                            <h1 class="jumbotitle"><strong>Mehr Effizienz und Qualität</strong></h1>
+                            <h3 class="lead">mithilfe von <strong>corticalo</strong> lassen sich <em>nicht-interventionelle und Arzneimittelstudien</em> sicherer und effizienter gestalten</h3>
+                            <hr class="my-4">
+                            <p class="row justify-content-md-center">
+                                <a title="Funktionen von corticalo" href="{{ url('/funktionen') }}" role="button" class="btn btn-sm btn-outline-dark">mehr erfahren</a>
+                            </p>
+                        </div> 
+                    </div>
+                    <div class="carousel-item">
+                        <div class="jumbotron jumbotext">
+                            <h1 class="jumbotitle"><strong>Pharmaunternehmen, klinisches Studienzentrum,Patienten</strong></h1>
+                            <h3 class="lead">von <strong>corticalo</strong> profitieren alle Akteure <em>klinischer Studien</em></h3>
+                            <hr class="my-4">
+                            <p class="row justify-content-md-center">
+                                <a title="Unser Kunden und Anwendungsbereiche" href="{{ url('/anwender') }}" role="button" class="btn btn-sm btn-outline-dark">Wer sind unsere Anwender?</a>
+                            </p>
+                        </div> 
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div> 
         </div>
     </div>   
 </div>
-<section class="container-fluid bg1 details text-center" id="details">
+
+{{-- <section class="container-fluid bg1 details text-center" id="details">
         <h2 class="sectionheading">Detailbereich</h2>
         <div class="row"> 
             <article class="col-md-12 bg1-info sizing">
@@ -27,7 +66,7 @@
         </div>
         <article class="row">
             <div class="col-md-12">
-                <h2 class="margin txt2"><strong>Funktionen</strong></h2>
+                <h2 class="margin txt2"><a href="{{ url('/funktionen') }}"><strong>Funktionen</strong></a></h2>
             </div>
             <div class="col-md-4">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -43,6 +82,6 @@
                 <img src="{{ asset('images/trialtools.jpg') }}" class="img-responsive margin" style="width:100%" alt="Studienauswertung">
             </div>
         </article>
-    </section>
+    </section> --}}
 @endsection
 

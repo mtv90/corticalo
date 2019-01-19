@@ -1,17 +1,11 @@
 @font-face{
     font-family: jumbotitle;
     src: url(../fonts/aristotelica-smallcaps-regular.ttf);
-
 }
 @font-face{
 
     font-family: subheading;
     src: url(../fonts/aristotelica.display-trial-regular.ttf);
-}
-@font-face{
-
-    font-family: corticons;
-    src: url(../fonts/aristotelica.icons-extralight.ttf);
 }
 
 html{
@@ -83,11 +77,6 @@ main{
     z-index: 1;
 }
 
-.dashBtn{
-    font-family: corticons;
-    font-size: 40px;
-    color: rgb(74, 135, 146);
-}
 .userSec a:hover{
     font-weight: bold;
     color: rgb(74, 135, 146);
@@ -280,18 +269,8 @@ main{
         height:80%;
     }
 }
-.moreBtn {
-    font-size: 60px;
-    text-align: center;
-}
-.moreBtn .corticons{
-    color: rgb(88, 89, 91);
-}
-div .moreBtn a:hover{
-    color: rgb(88, 89, 91);
-    font-weight: bold;
-    text-decoration: none;
-}
+
+
 .jumbotext{
     color: rgb(88, 89, 91);
 }
@@ -304,9 +283,6 @@ div .moreBtn a:hover{
     padding: 4px;
 }
 
-.margin{
-    margin-bottom: 40px;
-}
 .sizing{
     padding-bottom: 40px;
     padding-top: 70px;
@@ -314,13 +290,6 @@ div .moreBtn a:hover{
 }
 .text{
     font-size: 16px;
-}
-h2{
-    color: rgb(88, 89, 91);
-}
-h2.margin{
-    font-family: subheading, Tahoma, Geneva, sans-serif;
-    color: rgb(88, 89, 91);
 }
 
 .bg-footer{
@@ -341,6 +310,9 @@ h2.margin{
 }
 h2.txt2{
     font-family: subheading, Tahoma, Geneva, sans-serif;
+    color: rgb(230, 244, 243);
+}
+h2.txt2 a{
     color: rgb(230, 244, 243);
 }
 .bg3{
@@ -378,9 +350,7 @@ footer ul li a:hover, footer ul li a:focus {
     
     margin: 20% 0 20% 0;
 }
-.corticons{
-    font-family: corticons;
-}
+
 
 .btn-login{
     background-color: rgb(74, 135, 146);
@@ -401,4 +371,18 @@ div div div h3 a:hover{
 .message-success{
     background: rgb(137, 209, 206);
     color: white;
+}
+
+ul li{
+    list-style-type: none; 
+    color: rgb(88, 89, 91);
+    margin: 5px 0;   
+}
+
+.fas .fa-check{
+    color: rgb(74, 135, 146);
+}
+
+.check-icon{
+    color: rgb(74, 135, 146);
 }

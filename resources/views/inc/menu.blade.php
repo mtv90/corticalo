@@ -2,8 +2,9 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
         <a href="{{ url('/') }}">Home</a>
-        <a href="{{ url('/anwender') }}">Anwender</a>
         <a href="{{ url('/funktionen') }}">Funktionen</a>
+        <a href="{{ url('/anwender') }}">Anwender</a>
+        <a href="{{ url('/about') }}">über <strong>corticalo</strong></a>
         @guest
             <a href="{{ route('login') }}"><span class="login-link">User-Login</span></a>
         @else
@@ -18,7 +19,6 @@
                 @csrf
             </form>
         @endguest
-        <a href="{{ url('/about') }}">Über corticalo</a>
         <a href="{{ url('/kontakt') }}">Kontakt</a>
         <a href="{{ url('/impressum') }}">Impressum</a>
         <a href="{{ url('/datenschutz') }}">Datenschutz</a>

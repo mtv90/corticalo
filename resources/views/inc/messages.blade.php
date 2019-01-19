@@ -7,6 +7,13 @@
 
 @endif
 
+@if(session('send'))
+<div class="alert message-success">
+        <h4 class="alert-heading">Gesendet!</h4>
+        <p>{{session('send')}}</p>
+    </div>
+@endif
+
 @if(session('success'))
     <div class="alert message-success">
         {{session('success')}}

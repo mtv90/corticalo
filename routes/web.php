@@ -13,6 +13,7 @@ Route::get('/anwender', 'PagesController@anwender');
 Route::get('/funktionen', 'PagesController@funktionen');
 Route::get('/kontakt', 'PagesController@kontakt');
 Route::get('/about', 'PagesController@about');
+Route::post('/kontakt', 'PagesController@storeKontakt');
 ///////////
 
 // Routes für Userbereich

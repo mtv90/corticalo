@@ -7,9 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+# Funktionalität
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Der funktionale Umfang enthält folgende Komponenten:
+
+- Login mit verschiedenen Benutzerrollen
+- Implementierung der Standardseiten: Login, Register, Index/Welcome, Impressum, Datenschutz
+- 2-stufiger Eingabe-Prozess mit Formularen inkl. Validierung (session handling)
+
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).

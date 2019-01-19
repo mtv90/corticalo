@@ -73,12 +73,6 @@ class PatientsController extends Controller
         
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this -> validate($request, [
@@ -87,9 +81,7 @@ class PatientsController extends Controller
             'geburtsdatum' => 'required',
             'geburtsort' => 'required',
         ]);
-
-        // Create patient
-            
+   
         $patient = new Patient;
         $patient->pavorname = $request->input('vorname');
         $patient->panachname = $request->input('nachname');
