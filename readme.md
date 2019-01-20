@@ -135,7 +135,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 - der Admin hat per default alle Rechte. Er kann kann neue Rechte und neue Benutzerrollen erstellen und die Rechte einer Benutzerrolle zuordnen.
 
-## Technische Umsetzung
+# Technische Umsetzung
 
 Für die technische Umsetzung wurde zunächst die Datenbank modelliert. Gewisse Tabellen wie **anamnesis oder groups** wurden zwar mit aufgenommen, allerdings wurde diese aufgrund mangelnder Zeit nicht vollständig umgesetzt. Zudem waren sie nicht im vordefinierten Produktumfang enthalten.
 
@@ -153,3 +153,52 @@ Prinzipiell wurde sich nicht ganz an den Vorlesungsplan gehalten. Grund dafür i
 - Umsetzung **Controller-View-Schicht:** Erstellung und Kapselung des Layouts (**resources/views/layouts** und **resources/views/inc**) - Einteilung der Umsetzung in Pakete (in *resources/views/*: Studien **studies**, CRFs **crfs**, Fragen **forms**, Auswahlen **choices**, Patienten **patients**, Befragungen **answers**, Rollen **roles**, Rechte **rights**, User **user**, Willkommensseite **pages**) - Definition der Routes in *routes/web.php*
 - Umsetzung Javascript/Jquery/Ajax
 - Deployment
+
+Nachfolgend werden diese Punkte anhand des Bereichs **Fragen** (im code werden Fragen hauptsächlich als **forms** bezeichnet) beschrieben. Die anderen Bereiche wurden ähnlich implementiert, da in ziemlich allen Paketen eine vollständige CRUD-Funktionalität umgesetzt wurde.   
+
+## Erstellung Laravel-Projekt
+
+Erstellung des Projekts ist sehr einfach dank Laravel und Composer, daher wird hier nicht weiter darauf eingegangen, außer dass es erfolgreich verlief. Die ersten Arbeiten wurden über ein privates Github-Repository durchgeführt, ehe die Arbeit auf Gitlab weitergeführt wurden.
+
+## Umsetzung Model-Schicht
+
+Die Implementierung vollzog sich äußerst angenehmen, **php artisan make:model** sei dank. Die Modelklassen sind grundlegend im Ordner **app/** zu finden.
+
+Mithilfe von *php artisan make:model Form -m* wird ein Model in diesem Ordner erzeugt sowie eine zugehörige Migration, welche unter **database/migrations** zu finden ist. In der Migration lassen sehr einfach die Spalten definieren. Für das Model *Form* wird zugehörig eine Tabelle in der DB mit dem Namen **forms** mit den Spalten **id** (incrementes('id') => per default Primary Key) und **frtext** (für den eigentlichen Fragetext) sowie den Zeitstempeln **created_at und updated_at** (durch timestamps() in der Migration) mithilfe der erzeugten *migration* erstellt.
+
+Die Tabelle mit den definierten Spalten wird einfach mit dem Befehl *php artisan migrate* erstellt. Wichtig an dieser Stelle ist, dass vorher eine Datenbank erstellt werden muss, wohin die Tabelle migriert werden kann.
+
+Anschließend wurden Fremdschlüsselbeziehungen definiert und migriert. Wichtige Anmerkung, Foreign Keys bzw. Junction Tables lassen sich erst migrieren, wenn die jeweiligen Tabellen existieren, auf die sie sich beziehen. Das heißt, es müssen erst alle Basistabellen angelegt werden.
+
+Anschließend wurde die **forms-Tabelle** um die Spalten mit den Fremdschlüsseln **formtype_id, format_id, unit_id, range_id und user_id** erzeugt. Zu diesen Tabellen bestehen jeweils one-to-many-Beziehungen (*formtype* für den Fragetypen, *format* für das Eingabeformat, *unit* für die Maßeinheit, *range* für den Wertebereich, *user* für den Benutzer/Ersteller). Da eine Frage vom Typ *Checkbox oder Radiobutton* keine weiteren Angaben erfordert, können Format, Einheit und Wertebereich null sein (*nullable()*).
+
+Die Beziehung der jeweiligen Tabellen lässt sich dank Eloquent sehr einfach darstellen bzw. definieren. Bspw. wurde in **app/Form.php** die Beziehung zu Fragetypen (**app/Formtype.php**) durch die Funktion **formtypes()** mit dem Methodenrumpf **return $this->belongsTo('App\Formtype');** implementiert. Analog dazu wurde in app/Formtype.php die Funktion **forms()** mit **return $this->hasMany('App\Form');** implementiert. 
+
+Ähnlich wurden **many-to-many**-Beziehungen definiert, nur das dafür **junction tables** erstellt wurden. Um solch eine Beziehungen zum Model **CRF** herzustellen, wurde eine migration **crf_form**, die eine gleichnamige Tabelle in der DB erzeugt, erstellt. Wichtig ist hier, dass Eloquent alphabetisch vorgeht, daher ist die Anordnung *crf_form* bewusst so gewählt, sonst kann es später zu Problemen kommen, da Eloquent diese junction table nicht würde, sofern dieser Tabellenname nicht extra definiert wurde!
+
+Innerhalb dieser Migration wurden die beiden Spalten **crf_id** und **form_id** als Foreign Key definiert:
+
+**$table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');**
+
+*form_id* ist ein Fremdschlüssel und bezieht sich auf die Spalte *id* in der Tabelle *forms*. Es wurde zusätzlich noch definiert, was passieren soll, wenn eine Frage gelöscht wird; in diesem Fall *cascade*.
+
+Anschließend muss diese Beziehung noch in den jeweiligen Models definiert werden:
+
+in **app/Form.php**: 
+
+**public function crfs()** mit der Implementierung **return $this->belongsToMany('App\CRF', 'crf_form', 'form_id', 'crf_id');**
+
+in **app/CRF.php**: 
+
+**public function forms()** mit der Implementierung **return $this->belongsToMany('App\Form' , 'crf_form', 'crf_id', 'form_id');** 
+
+
+In der view lässt sich das anschließend sehr angenehm verwenden um bspw. eine Liste aller Fragen, die einem bestimmten CRF zugeordnet sind, auszugegeben:
+
+**@foreach($crf->forms as $form) @endforeach**
+
+innerhalb dieser Schleife lassen sich dann alle Fragen mit dem entsprechenden Fragetext ausgeben:
+
+**{{ $form->frtext }}**
+
+Die genaue Umsetzung kann man in **views/crfs/index**, **views/crfs/show** oder **views/forms/index** **views/forms/show** nachvollziehen.

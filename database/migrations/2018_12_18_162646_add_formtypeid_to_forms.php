@@ -18,7 +18,7 @@ class AddFormtypeidToForms extends Migration
             $table->integer('format_id')->after('formtype_id')->nullable();
             $table->integer('unit_id')->after('format_id')->nullable();
             $table->integer('range_id')->after('unit_id')->nullable();
-            $table->integer('user_id')->after('range_id')->nullable();
+            $table->integer('user_id')->after('range_id');
             
         });
     }
