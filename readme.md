@@ -61,8 +61,24 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 **Als Studienleiter möchte ich auf einem Dashboard alle für mich wichtigen Informationen überblicken können**
 
 - Durch die Implementierung eines Benutzerrechtekonzepts lässt sich der Zugriff und die Ansicht bestimmter Bereiche kontrollieren. Welche Rechte man hat, erkennt man bereits an den Inhalten des **[Dashboards](https://corticalo.herokuapp.com/dashboard)**. Im oberen Bereich unterhalb der Navigationsleiste sieht man unter **Eingeloggt als**, mit welcher Rolle man eingeloggt ist (per default gibt es bereits die Rollen **Administrator, Studienleiter und Arzt**, mit jeweils unterschiedlichen Rechten). Des Weiteren werden in der Seitennavigation sowie im Inhaltsbereich des Dashboards nur die Kategorien angezeigt, zu denen man auch die entsprechenden Rechte besitzt!
+Jede Rolle besitzt bestimmte Rechte. Die Rechte betreffen die entsprechenden Kategorien (Studien, CRF, Fragen, Auswahlen, Patienten, Befragungen, Ergebnisse, Benutzerprofil, Benutzerrechte, Benutzerrollen). Zu jeder Kategorie kann man definieren, ob der jeweilige Benutzer Einträge sehen (jeweilige index-view allgemein lesend), Einträge erstellen (create), Einträge bearbeiten (edit) oder Einträge (delete) kann.
 
-..* Jede Rolle besitzt bestimmte Rechte. 
+**Als Studienleiter möchte ich Studien erstellen können**
+
+-
+
+**Als Studienleiter möchte ich Case Report Forms (CRF) erstellen können**
+
+-
+
+**Als Studienleiter möchte ich Fragen für meine CRFs erstellen können**
+
+-
+
+**Falls meine erstellte Frage vorgegebene Antwortmöglichkeiten benötigt (Typ Checkbox oder Radiobutton), möchte ich als Studienleiter Auswahlmöglichkeiten für diese Frage definieren können**
+
+-
+
 #### Arzt
 
 ## Technische Umsetzung
