@@ -3,7 +3,7 @@
 </p>
 
 
-Der Service-Provider **corticalo** vom Projektteam *trial404** ist ein Prototyp für ein Studienmanagementsystem, mit dem Studiengruppen ihre Studien
+Der Service-Provider **corticalo** vom Projektteam **trial404** ist ein Prototyp für ein Studienmanagementsystem, mit dem Studiengruppen ihre Studien
 organisieren sowie durchführen können. Kernstück bildet dabei der «electronic case report form» (elektronischer
 Prüfbogen, kurz: eCRF).
 Ziel des gesamten Projekts war es, dass der Studienleiter bzw. die Studiengruppe Fragen verschiedenen Typs
@@ -26,7 +26,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 - Login mit verschiedenen Benutzerrollen
 - Implementierung der Standardseiten: Login, Register, Index/Welcome, Impressum, Datenschutz
-..- Die Registrierung wurde geändert, um den Anforderungen zu entsprechen. Es soll möglich sein, dass sich ein User mit einer vordefinierten Rolle registrieren kann. Diese Rolle muss dafür dem RegisterController mitgegeben werden. Dazu wurde in **vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php** die Funktion **showRegistrationForm()** erweitert
+⋅⋅* Die Registrierung wurde geändert, um den Anforderungen zu entsprechen. Es soll möglich sein, dass sich ein User mit einer vordefinierten Rolle registrieren kann. Diese Rolle muss dafür dem RegisterController mitgegeben werden. Dazu wurde in **vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php** die Funktion **showRegistrationForm()** erweitert
 - 2-stufiger Eingabe-Prozess mit Formularen inkl. Validierung (session handling)
 
 ## Use Cases
