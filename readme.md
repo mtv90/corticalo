@@ -279,5 +279,15 @@ Mit dem Drücken der *Studie speichern*-Schaltfläche wir die *store*-Funktion d
 
 ## Authentifizierung und Autorisierung
 
-Die Authentifizierung wird glücklicherweise durch Laravel immens unterstützt. Nachdem durch *php artisan make:auth* die Laravel-Authentication eingebunden wurde, lassen sich die Routes in der *routes/web.php* durch **Auth::routes()** schützen. Außerdem wurden die Funktionen in jedem Controller durch die eingebundene *middleware* im Konstruktor **_construct()** geschützt: äußerst hilfreich ist hierbei **middleware('auth')**...
-Außerdem
+Die Authentifizierung wird glücklicherweise durch Laravel immens unterstützt. Nachdem durch *php artisan make:auth* die Laravel-Authentication eingebunden wurde, lassen sich die Routes in der *routes/web.php* durch **Auth::routes()** schützen. Außerdem wurden die Funktionen in jedem Controller durch die eingebundene *middleware* im Konstruktor **_construct()** geschützt: äußerst hilfreich ist hierbei **middleware('auth'):** der Benutzer muss eingeloggt sein für einen Zugriff. 
+Außerdem wurde eine eigene middleware benutzt. Diese nimmt zunächst den Request entgegen, prüft zunächst, ob der eingeloggte Benutzer eine Benutzerrolle besitzt bzw. ob diese Benutzerrolle überhaupt Benutzerrechte beinhaltet, wenn ja, dann gibt die middleware den Request weiter. Ansonsten wird der Zugriff verweigert und der Benutzer gelangt zurück zum Dashboard und erhält eine Fehlermeldung.
+*siehe Konstruktor im FormsController*
+
+Außerdem ist jede Funktion auch noch einmal geschützt. Zum Beispiel wird in der index()-Funktion im FormsController, bevor diese Funktionen die angefragte View zurückgibt, geprüft, ob der eingeloggte Benutzer das Recht besitzt, die Index-View des Fragenbereichs aufzurufen:
+
+**foreach ($role->rights as $right)** 
+gehe alle der Rolle zugehörigen Rechte durch..
+            **if ($right->formindex == 1) {**
+            und prüfe, ob der Benutzer mit seiner erteilten Rolle das Recht *formindex* besitzt.
+            Wenn ja, leite weiter. Wenn nein, leite zurück zum Dashboard.
+
