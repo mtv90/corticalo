@@ -137,9 +137,16 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 ## Technische Umsetzung
 
-Für die technische Umsetzung wurde zunächst die Datenbank modelliert
+Für die technische Umsetzung wurde zunächst die Datenbank modelliert. Gewisse Tabellen wie **anamnesis oder groups** wurden zwar mit aufgenommen, allerdings wurde diese aufgrund mangelnder Zeit nicht vollständig umgesetzt. Zudem waren sie nicht im vordefinierten Produktumfang enthalten.
 
 <p align="center">
 <img src="public/images/corticaloDB.png" alt="corticalo Datenbank" style="max-width:100%;">
 </p>
 
+Im folgenden Abschnitt wird nun für jedes Vorlesungskapitel erläutert, wie die Web Applikation umgesetzt wurde. Dabei werden **nicht** alle implementierten Komponenten vorgestellt. Es soll lediglich dargestellt werden, dass die Anforderungen der jeweiligen Vorlesung umgesetzt wurden. 
+
+Prinzipiell wurde sich nicht ganz an den Vorlesungsplan gehalten. Grund dafür ist das Datenmodell, welches relativ komplex wurde. Die korrekte und saubere Ausarbeitung der Datenbank war unabdingbar für erfolgreiches weiteres Vorgehen, da diese das Fundament der Applikation bildet. Aus diesem Grund haben wir unsere Implementierung folgendermaßen gegliedert:
+
+- Modellierung der Datenbank
+- Erstellung des Laravel-Projects
+- Umsetzung Model-Schicht: Erzeugung der Models inkl. Migrations sowie Laravel-Auth - Erzeugung einer lokalen Testtabelle - Erste Migration - Erzeugung von Migrations für die Fremdschlüsselbeziehungen (one-to-many, many-to-many) - zweite Migration - Erstellung DatabaseSeeder für Test-/Initialdaten
