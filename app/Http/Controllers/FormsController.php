@@ -93,9 +93,9 @@ class FormsController extends Controller
     // Asynchrone Funktion für das Edit-Formular
     public function geteditformats($id){
         $form = Form::find($id);
-        // $type = Formtype::find($id);
+        
         $formats = Format::all();
-        // ->with('type', $type)
+       
         return view('geteditformats')->with('formats', $formats)->with('form', $form);
     }
 

@@ -202,3 +202,79 @@ innerhalb dieser Schleife lassen sich dann alle Fragen mit dem entsprechenden Fr
 **{{ $form->frtext }}**
 
 Die genaue Umsetzung kann man in **views/crfs/index**, **views/crfs/show** oder **views/forms/index** **views/forms/show** nachvollziehen.
+
+
+#### Erstellung DatabaseSeeder
+
+Damit ein Login bzw. Registrierung sowie Anlegen von Fragen möglich ist, bedarf es initialer Werte in der Datenbank. Dies wurde über den **database/seeds/DatabaseSeeder.php** realisiert. Dieser beinhaltet die Erstellung von 3 Benutzern mit verschiedenen Benutzerrechten/-rollen. Außerdem wurden die Tabellen **formats, formtypes und units** mit Werten gefüllt, damit eine Erstellung von Fragen möglich ist.
+
+**Vorgehen:**
+
+1. php artisan migrate oder falls man die DB neu aufsetzen möchte: php artisan migrate:fresh
+2. php artisan migrate:seed füllt die DB mit den Werten aus dem *DatabaseSeeder*
+
+
+## Controller-View-Sicht
+
+Alle Controller sind in **app/Http/Controllers** zu finden.
+Um jetzt Inhalte aus der DB über ein Model im Frontend darstellen zu können, sind folgende Schritte nötig:
+
+1. Erstellung eines Controllers, der die Daten aus der DB entgegennimmt und an die View weiterleitet
+2. Erstellung einer Route, damit die Inhalte auch in die richtige View gelangen
+
+### Controller
+
+***php artisan make:controller FormsController -resource**
+
+- Command erzeugt einen Controller für *Fragen* bzw. *forms*. Durch *-resource* werden mit der Erstellung des Controller gleichzeitig die grundlegenden Methoden für eine CRUD-Funktionalität miterstellt (index(), create(), store(), show(), edit(), update(), destroy()). Diese Methoden wurden anschließend implementiert und in *routes/web.php* registriert durch **Route::resource('forms', 'FormsController')**. 
+- Damit ferner Daten aus der DB ausgelesen werden können, müssen die entsprechenden Models importiert werden durch: **use App\Form;**
+
+Die durch Artisan mitgelieferten Methoden wurden außerdem um weitere Methoden erweitert:
+- **getformats()**: zur Realisierung eines asynchronen Prozesses. Wichtig beim Erstellen einer Frage. Zu finden beim **[Erstellen einer Frage](https://corticalo.herokuapp.com/forms/create)**.  Nähere Informationen werden im Bereich Javascript/jQuery/Ajax erläutert.
+- **geteditformats():** zur Realisierung eines asynchronen Prozesses. Wichtig beim Bearbeiten einer Frage
+- **getranges():** zur Realisierung eines asynchronen Prozesses. Wichtig beim Erstellen einer Frage. Zu finden beim **[Erstellen einer Frage](https://corticalo.herokuapp.com/forms/create)**. 
+- **getsavedranges():** zur Realisierung eines asynchronen Prozesses. Wichtig beim Bearbeiten einer Frage
+- **getunits():** zur Realisierung eines asynchronen Prozesses. Wichtig beim Erstellen einer Frage. Zu finden beim **[Erstellen einer Frage](https://corticalo.herokuapp.com/forms/create)**.
+- **getsavedunits():** zur Realisierung eines asynchronen Prozesses. Wichtig beim Bearbeiten einer Frage
+- **storeForms():** Dadurch ist ein Speichern einer Frage vom Dashboard aus möglich
+- **addForm():** Zu finden, wenn man einen angelegten CRF bearbeiten möchte. Über *Erstelle Frage* öffnet sich ein Modal, worüber, dank der Funktion *addForm*, ein Anlegen einer oder mehrerer Fragen möglich ist
+- **destroyAsync():** wird für einen asynchronen Löschvorgang einer Frage vom Dashboard aus benötigt.
+
+*Diese Funktionen müssen, damit sie auch richtig benutzt werden können, in **routes/web.php** registriert werden.*
+
+Die Funktionen im FormsController leiten außerdem zu den entsprechenden views weiter. Die Funktionen *index, create, show oder edit* bspw. geben eine **view** mit entsprechenden Variablen (**with('foo', $foo)**) zurück, Funktionen wie *store oder update* leiten per **redirect()** zu Ausgangsseiter bzw. einer anderen Seite weiter.
+
+
+### View
+
+**resources/views/forms** 
+
+Hier sind alle wichtigen view-Dateien für den Bereich *Fragen* vorhanden: create, edit, index und show. Alle haben den Suffix **.blade.php**
+
+Jedes sog. Blade-Template ist prinzipiell gleich aufgebaut:
+
+- *@extends('layout.dateiName.blade.php)*: Angabe, welches Layout erweitert wird. Wird im jeweiligen Layout angezeigt durch *@yield('content')*
+- *@section('content') ... @endsection:* innerhalb dieses Blocks wird der eigentliche Inahlt definiert.
+- innerhalb der section: *@section('title') ... @stop*: Hier wird ein Titel für die Seite definiert, der Browser-Tab sichtbar ist
+
+Views, die während des Erstellens einer Frage asynchron nachgeladen werden, befinden sich in **resources/views** ganz unten: *geteditformats, getformats, getranges, getsavedranges, getsavedunits, getunits*
+
+
+## Session Handling
+
+Wie bereits erwähnt existieren 2 Prozesse, wo Daten in einer Session gehalten werden:
+
+1. **[Erstellen einer Studie](https://corticalo.herokuapp.com/studies/create)**
+2. **Löschen einer Befragung**: In der Detailansicht einer Studie wird bei entsprechender Berechtigung eine Löschen-Schaltfläche angeboten
+
+**Erstellen einer Studie**
+
+Hat man alle relevanten Felder angegeben und auf *anlegen* geklickt, gelangt man auf eine Bestätigungsseite. Erst danach wird der Eintrag in der DB gespeichert.
+
+Das Erstellformular beinhaltet folgende *action*: **'action'=> 'StudiesController@showOverview'**
+
+Das sorgt dafür das die Funktion *showOverview* im *StudiesController* aufgerufen wird. Diese Funktion nimmt den Request entgegen und sichert die Eingaben in einer *session*. Anschließend gibt die Funktion eine *view* unter Route */studies/overview* zurück. Diese Route ist natürlich auch in *routes/web.php* registriert. Dadurch öffnet sich eine Übersichtsseite, wo noch einmal alle Eingaben angezeigt werden und man aufgefordert wird, diese zu bestätigen. Ansonsten kann man den Erstellprozess abbrechen, indem man die Schaltfläche *zurück* drückt.
+Mit dem Drücken der *Studie speichern*-Schaltfläche wir die *store*-Funktion des *StudiesController* aufgerufen. Diese Funktion liest dann zunächst die gespeicherten Daten aus der Session aus und speichert sie dann in der DB.
+
+
+## Authentifizierung und Autorisierung
