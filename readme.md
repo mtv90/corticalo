@@ -28,7 +28,7 @@ Nachdem die Basis geschaffen wurde, ging es zur Konzeption. Hierbei wurden zunä
 
 Das Design, insbesondere die Farben und die Navigationsleiste inkl. Menü, konnte vollständig in der Web Applikation realisiert werden. Allerdings wurde, im Vergleich zum Prototyp, auf der **[Startseite](https://corticalo.herokuapp.com/)** das Hintergrundbild durch Partikel ersetzt. Außerdem wurden die nachfolgenden Inhalte (über uns, Funktionen, Anwender, Referenzen wurden nicht umgesetzt, da keine vorhanden sind) auf der Startseite des Prototyps auf Unterseiten aufgeteilt, damit die Ladezeit der Startseite verringert wird. Auf den Unterseiten findet sich das Design des Prototyps wieder, vor allem das Hintergrundbild mit Jumbotron. Ebenfalls wurden die Inhalte ähnlich angeordnet (container mit 3 Spalten und Justify-Content-Center).
 
-Nachfolgend wird zunächst die Funktionalität der Web Applikation beschrieben. Dabei werden, basierend auf den Benutzergruppen/Personas, die entsprechenden **use cases** vorgestellt (Resultieren aus dem **Produktumfang im Kapitel 4 der Projektskizze**). Im Anschluss wird erläutert, wie die Web Applikation **technisch umgesetzt** wurde.
+Nachfolgend wird zunächst die Funktionalität der Web Applikation beschrieben. Dabei werden, basierend auf den Benutzergruppen/Personas, die entsprechenden **use cases** vorgestellt (Resultieren aus dem **Produktumfang im Kapitel 4 der Projektskizze**). Im Anschluss wird erläutert, wie die Web Applikation **technisch umgesetzt** wurde. Für die technische Umsetzung wurde vorher das Datenbankschema modelliert, da die Web Applikation viele Tabellen mit unterschiedlichen Abhängigkeiten beinhaltet. Die Logik und Funktionalität basiert damit auf grundlegend auf dem Datenbankmodell.
 
 # Funktionalität
 
@@ -74,17 +74,54 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 - CRFs lassen sich ähnlich wie Studien erstellen, hier fehlt jedoch der 2-stufige Prozess mit Eingabeüberprüfung und -bestätigung.
 - Existieren bei der Erstellung bereits Studien oder Fragen, dann sind entsprechende Auswahlfelder vorhanden. Ein CRF kann dabei keinem, einem oder mehreren Studien zugeordnet werden. Ein CRF kann keine, eine oder mehrere Fragen beinhalten.
-- legt man den CRF vom Dashboard aus an, bleibt man auf der Dashboard-Seite (Seite wird lediglich neu geladen). Erstellt man einen CRF über den **[Erstellbereich](https://corticalo.herokuapp.com/crfs/create)** wird man anschließend auf die **[CRF-Übersicht](https://corticalo.herokuapp.com/dashboard)** weitergeleitet. In beiden Fällen bekommt man im Anschluss eine Benachrichtigung, ob das Speichern erfolgreich war oder nicht
+- legt man den CRF vom Dashboard aus an, bleibt man auf der Dashboard-Seite (Seite wird lediglich neu geladen). Erstellt man einen CRF über den **[Erstellbereich](https://corticalo.herokuapp.com/crfs/create)** wird man anschließend auf die **[CRF-Übersicht](https://corticalo.herokuapp.com/crfs)** weitergeleitet. In beiden Fällen bekommt man im Anschluss eine Benachrichtigung, ob das Speichern erfolgreich war oder nicht.
 
 **Als Studienleiter möchte ich Fragen für meine CRFs erstellen können**
 
--
+- Erstellung ist wie bei Studien und CRFs auf 2 Weisen möglich.
+- Bestehen bereits CRFs kann ich diese über ein entsprechendes Auswahlfeld auswählen. Eine Frage kann keinem, einem oder mehreren CRFs zugeordnet werden.
+- **Besonderheit:** beim Erstellen einer Frage muss ich auswählen, um welchen Fragetypen es sich handelt (**Eingabe, Checkbox oder Radiobutton**)
+
+- Bei Fragetyp-Auswahl **Eingabe:** wird per AJAX ein weiteres Auswahlfeld nachgeladen, in dem man angeben muss, in welchem **Format** die Eingabe getätigt werden kann. Es gibt 7 verschiedene Formate zur Auswahl: Textfeld, Textarea, Datum, Uhrzeit, Jahreszahl, Ganzzahl oder Gleitkommazahl. Entscheidet man sich für das Format **Ganzzahl oder Gleitkommazahl** wird ein weiteres Auswahlfeld per AJAX nachgeladen, in dem Man einen Wertebereich definieren kann. Außerdem besteht die Möglichkeit über die Schaltfläche *Einheit angeben* eine bestimmte Maßeinheit anzugeben (momentan sind 11 verschiedene Einheiten vordefiniert).
+
+- Bei Fragetyp-Auswahl **Checkbox oder Radiobutton:** wird nichts nachgeladen. Nach dem Anlegen der Frage erscheint jedoch ein Hinweis, dass für diese Frage Auswahlmöglichkeiten benötigt werden. Die Hinweismeldung zeigt dafür eine Schaltfläche *zur Auswahlerstellung* an, die einem zum **[Erstellbereich](https://corticalo.herokuapp.com/choices/create)** navigiert.
 
 **Falls meine erstellte Frage vorgegebene Antwortmöglichkeiten benötigt (Typ Checkbox oder Radiobutton), möchte ich als Studienleiter Auswahlmöglichkeiten für diese Frage definieren können**
 
--
+- Man kann einer Frage keine, eine oder mehrere Auswahlen zuordnen. Auswahlen können nur einer Frage zugeordnet werden.
+- Auf **[Auswahl-Übersichtsseite](https://corticalo.herokuapp.com/choices)** werden alle Fragen vom Typ **Checkbox oder Radiobutton** angezeigt. Dabei ist sofort ersichtlich, wenn eine Frage noch keine Auswahlmöglichkeiten besitzt.
+- **Auswahl erstellen**: es erscheint ein Modalfenster, in dem man einen Auswahltext eingeben muss, außerdem erscheint per AJAX ein weiteres Auswahlfeld für Auswahl der Frage (**Achtung:** die Praxistests zeigen, dass es ein wenig dauert, bis das Frageauswahlfeld angezeigt wird. Daher bitte ein paar Sekunden warten, sonst lässt sich die Auswahl nich anlegen bzw. es erscheint eine Fehlermeldung)
+
+**Als Studienleiter möchte ich meine erstellten Studien, CRFs oder Fragen im Detail anschauen können**
+
+- wurde eine Studie, ein CRF oder eine Frage erstellt, kann man diese nicht nur über die entsprechende Übersichtsseite betrachten, sondern es gibt für den Eintrag eine detailliertere **Show-View**. Indem man von der Übersichtsseite auf einen Eintrag klickt, gelangt man zur Detailansicht, sofern man die Rechte hat.
+
+**Als Studienleiter möchte ich meine erstellten Studien, CRFs oder Fragen sowie Auswahlen bearbeiten oder löschen können**
+
+- ist man der Ersteller dieser Einträge und besitzt man die entsprechenden Rechte, werden auf den jeweiligen Übersichtsseiten die entsprechenden Schaltflächen dargestellt (Bearbeiten: **Button mit Zahnrädern**; Löschen: **Roter Button mit Mülleimer**)
+
+**Als Studienleiter möchte ich beantwortete CRFs überblicken können**
+
+- im Dashboad gibt es einen Bereich **Studien**, wo alle Studien aufgelistet wurden (wird angezeigt, wenn man die Rechte dafür hat). Ein Klick auf den Button mit dem Auge öffnet ein Modal mit einer Detailansicht
 
 #### Arzt
+
+**Als Arzt möchte ich auf einem Dashboard alle für mich wichtigen Informationen überblicken können**
+
+- diese Funktionalität ist ähnlich wie für den Benutzer *Studienleiter*. Da der Arzt andere Rechte besitzt, bekommt dieser andere Inhalte angezeigt: Patienten, Befragungen und Studien.
+
+**Als Arzt möchte ich Patienten erstellen können**
+
+- Erstellung eines Patienten ist über die **[Erstellseite](https://corticalo.herokuapp.com/patients/create)** möglich. Nach dem Anlegen wird man auf die **[Patienten-Übersichtsseite](https://corticalo.herokuapp.com/patients)** weitergeleitet.
+
+**Als Arzt möchte ich meinen erstellten Patienten im Detail betrachten können**
+
+- über die Patienten-Übersichtsseite, indem auf einen Eintrag klickt, gelangt man zur Detailansicht des Patienten (sofern man die Rechte hat).
+
+**Als Arzt möchte ich meinen erstellten Patienten bearbeiten und löschen können**
+
+- sofern man die Rechte hat: werden in der Detailansicht des Patienten entsprechende Schaltflächen angezeigt zum Löschen bzw. Bearbeiten des Patienten.
+
 
 ## Technische Umsetzung
 

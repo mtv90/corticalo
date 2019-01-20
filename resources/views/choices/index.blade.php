@@ -34,17 +34,16 @@
                     @if ($form->formtype_id !== 1 )
                         <div class="card bg-light text-dark">
                             <div class="card-header">
-                                <h4 class="">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$form->id}}">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$form->id}}">
+                                    <h4 class="border rounded p-2">
                                         {{$form->frtext}} 
                                         @if (count($form->choices)>0)
                                             <span class="badge border"> {{count($form->choices)}} </span>
                                         @else
                                             <span class="fa fa-exclamation" style="color:tomato"></span>
                                         @endif
-                                        
-                                    </a>
-                                </h4>
+                                    </h4>
+                                </a>
                                 @if(count($form->choices) > 0)
                                     <button class=" btn btn-sm create-button mb-4 float-right" data-toggle="modal" 
                                         data-target="#addModalChoiceForm" type="button" name="button" id="formid" value="{{$form->id}}" onclick="getvalue(this.value)">
