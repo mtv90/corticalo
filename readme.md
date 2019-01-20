@@ -278,3 +278,6 @@ Mit dem Drücken der *Studie speichern*-Schaltfläche wir die *store*-Funktion d
 
 
 ## Authentifizierung und Autorisierung
+
+Die Authentifizierung wird glücklicherweise durch Laravel immens unterstützt. Nachdem durch *php artisan make:auth* die Laravel-Authentication eingebunden wurde, lassen sich die Routes in der *routes/web.php* durch **Auth::routes()** schützen. Außerdem wurden die Funktionen in jedem Controller durch die eingebundene *middleware* im Konstruktor **_construct()** geschützt: äußerst hilfreich ist hierbei **middleware('auth')**...
+Außerdem
