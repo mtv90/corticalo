@@ -139,7 +139,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 Für die technische Umsetzung wurde zunächst die Datenbank modelliert
 
-![Datenbankschema](https://gitlab.in.htwg-konstanz.de/lehre/meiglspe/wise1819/wete/projects/trial404/tree/master/public/images/corticalo.svg "corticalo Datenbank")
+![Datenbankschema](https://gitlab.in.htwg-konstanz.de/lehre/meiglspe/wise1819/wete/projects/trial404/tree/master/public/images/corticaloDB.png "corticalo Datenbank")
 <p align="center">
 <img src="public/images/corticalo.svg" alt="corticalo Datenbank">
 </p>
