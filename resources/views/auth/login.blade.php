@@ -52,9 +52,9 @@ Login
                                             <button type="submit" class="btn btn-login">
                                                 {{ __('Anmelden') }}
                                             </button>
-                                            <a class="btn btn-link" href="{{ route('password.request') }}" style="color:rgb(88, 89, 91);">
+                                            {{-- <a class="btn btn-link" href="{{ route('password.request') }}" style="color:rgb(88, 89, 91);">
                                                 {{ __('Passwort vergessen?') }}
-                                            </a>
+                                            </a> --}}
                                             <hr>
                                         </div>
                                         <div class="col-md-2 offset-md-4 col-sm-3">

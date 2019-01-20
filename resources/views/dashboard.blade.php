@@ -437,7 +437,6 @@
                 {{-- Zugriffsrechte prüfen--}}
                 @foreach ($role->rights as $right)
                     @if ($right->stats == 1)
-                    <p>hallo</p>
                         {{-- Beginn Studienübersicht --}}
                         <div class="col-md-4">
                             <div class="card">
