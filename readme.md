@@ -276,6 +276,8 @@ Das Erstellformular beinhaltet folgende *action*: **'action'=> 'StudiesControlle
 Das sorgt dafür das die Funktion *showOverview* im *StudiesController* aufgerufen wird. Diese Funktion nimmt den Request entgegen und sichert die Eingaben in einer *session*. Anschließend gibt die Funktion eine *view* unter Route */studies/overview* zurück. Diese Route ist natürlich auch in *routes/web.php* registriert. Dadurch öffnet sich eine Übersichtsseite, wo noch einmal alle Eingaben angezeigt werden und man aufgefordert wird, diese zu bestätigen. Ansonsten kann man den Erstellprozess abbrechen, indem man die Schaltfläche *zurück* drückt.
 Mit dem Drücken der *Studie speichern*-Schaltfläche wir die *store*-Funktion des *StudiesController* aufgerufen. Diese Funktion liest dann zunächst die gespeicherten Daten aus der Session aus und speichert sie dann in der DB.
 
+Mit Sessions wurde zudem auch in **resources/views/inc/messages.blade.php** gearbeitet. Speichert ein Benutzer einen Eintrag, wird ihm anschließend eine succes-Nachricht angezeigt, welche beim nächsten Request wieder verschwindet. Diese Benachrichtigungen wurden außerdem für etwaige Fehlermeldungen (bspw. kein Zugriffsrecht) oder Hinweismeldungen (bspw. nach Erstellen einer Frage vom Typ Checkbox || Radiobutton).
+
 
 ## Authentifizierung und Autorisierung
 
@@ -285,9 +287,31 @@ Außerdem wurde eine eigene middleware benutzt. Diese nimmt zunächst den Reques
 
 Außerdem ist jede Funktion auch noch einmal geschützt. Zum Beispiel wird in der index()-Funktion im FormsController, bevor diese Funktionen die angefragte View zurückgibt, geprüft, ob der eingeloggte Benutzer das Recht besitzt, die Index-View des Fragenbereichs aufzurufen:
 
-**foreach ($role->rights as $right)** 
+**foreach ($role->rights as $right):** 
 gehe alle der Rolle zugehörigen Rechte durch..
-            **if ($right->formindex == 1) {**
+            **if ($right->formindex == 1):**
             und prüfe, ob der Benutzer mit seiner erteilten Rolle das Recht *formindex* besitzt.
             Wenn ja, leite weiter. Wenn nein, leite zurück zum Dashboard.
 
+Diese Implementierung findet sich in allen Funktionen in allen Controllern wieder, sofern diese nicht frei zugänglich sein dürfen!
+
+
+Diese Authorisierungsprüfungen wurden zusätzlich auch in den Views eingebaut. Insbesondere in der **Dashboard-View**, welche in *resources/views* liegt.
+Hier wird für jede *Card* das jeweilige benötigte Recht geprüft. Dafür wird zunächst mit einer foreach-Schleife durch die gesamte Rechte-Tabelle iteriert und geprüft, ob der Benutzer mit seiner Benutzerrolle das notwendige Recht besitzt. Wenn ja, dann wird ihm die *Card* im Dashboard angezeigt. Das gleiche Vorgehen wurde in der Seitennavigation implementiert, welche unter **resources/views/inc/sidebarNew.blade.php** abgelegt ist.
+Authorisierung wurde auch in **resources/views/inc/menu.blade.php** (Vollbildmenü, welches angezeigt wird, wenn man den Menübutton in der Navigation drückt) und in **resources/views/inc/navigationNew.blade.php** (Dashboard-Button wird nur angezeigt, wenn der User erfolgreich eingeloggt ist).
+
+
+## JavaScript/JQuery/Ajax
+
+JavaScript (JS) und Asynchrone Prozesse finden sich an unzähligen Stellen wieder. Daher werden nur einige Funktionen vorgestellt. Das Bootstrap ebenfalls JQuery benutzt, wird nicht näher erläutert.
+
+Bereits das Öffnen des Vollbild-Menüs wurde mit mithilfe von JS gelöst. Durch Drücken des Menüs wird die Funktion **openNav()** aufgerufen, die in **public/js/menu.js** gespeichert ist. In dieser Datei befinden sich auch alle relevanten Ajax-Funktionen, die für die Erstellung einer Frage benötigt werden.
+
+Im Ordner *public/js* finden sich außerdem eine Vielzahl weiterer wichtiger Dateien:
+- *myScript.js:* ist wichtig für die Implementierung der Partikel auf der Startseite. Dazu werden noch *particle.js und particlejs-config.json* benötigt.
+- *select2Use.js:* ist wichtig, damit die Multiselect-Boxen verwendet werden können (zu finden beim Erstellen einer Studie, wenn man vorhandene CRFs oder Patienten auswählen möchte). Dazu benötigt es die *select2.full.js*-Bibliothek
+
+Weitere wichtige JS-Funktionen finden sich in **resources/assets/js/custom**:
+
+Hier sind vor allem asynchrone Löschfunktionen mithilfe von *JQuery* und *axios* implementiert. Diese werden z.B. verwendet, wenn man im Dashboard eine Studie, einen CRF oder eine Frage löschen möchte. Drückt man auf die Löschen-Schaltfläche, erscheint eine Hinweismeldung, die nachfragt, ob man sich sicher ist. Wenn man bestätigt, wird über **axios** ein asynchroner Löschvorgang angestoßen. Hierbei wurde vor allem mit sogenannten Promises gearbeitet:
+- axios ruft einen delete-Request an die angegebene URL auf, war dieser erfolgreich wird der *.then()*-Block ausgeführt, wenn nicht, wird dieser Fehler im *.catch()*-Block aufgefangen. 
