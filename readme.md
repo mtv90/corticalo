@@ -24,14 +24,21 @@ Um das alles zu ermöglichen wurde eine plattformunabhängige Web-Applikation **
 
 Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
-- Login mit verschiedenen Benutzerrollen
-- Implementierung der Standardseiten: Login, Register, Index/Welcome, Impressum, Datenschutz
-⋅⋅* Die Registrierung wurde geändert, um den Anforderungen zu entsprechen. Es soll möglich sein, dass sich ein User mit einer vordefinierten Rolle registrieren kann. Diese Rolle muss dafür dem RegisterController mitgegeben werden. Dazu wurde in **vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php** die Funktion **showRegistrationForm()** erweitert
+- Login mit verschiedenen Benutzerrollen: Patient/Besucher, Studienleiter, Arzt, Administrator
+- Implementierung der Standardseiten: Login, Register, Index/Welcome (inkl. Unterseiten), Impressum, Datenschutz, Kontakt
+- **Hinweis:** Die Registrierung wurde geändert, um den Anforderungen zu entsprechen. Es soll möglich sein, dass sich ein User mit einer vordefinierten Rolle registrieren kann. Diese Rolle muss dafür dem RegisterController mitgegeben werden. Dazu wurde in **vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php** die Funktion **showRegistrationForm()** erweitert
 - 2-stufiger Eingabe-Prozess mit Formularen inkl. Validierung (session handling)
 
 ## Use Cases
 
-**Als User möchte ich von einer Willkommensseite begrüßt werden
+####Patient/Besucher####
+
+**Als Besucher möchte ich von einer Willkommensseite begrüßt und über das Thema sowie den Service-Provider informiert werden können**
+
+- Implementierung einer optisch ansprechenden **[Indexseite](https://corticalo.herokuapp.com/)**, von der man zu den Unterseiten (Funktionen, Anwender, über corticalo, User-Login, Impressum, Datenschutz, Kontakt) navigieren kann.
+
+**Als Besucher möchte ich bei weiterführenden Fragen den Service-Provider kontaktieren können**
+
 
 
 ## Laravel Sponsors
