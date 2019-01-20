@@ -20,6 +20,10 @@ spiegelt auch der Name des Projekts, «corticalo» (englisch: corticalization, d
 Verschachtelung von Gehirnfunktionen), wieder.
 Um das alles zu ermöglichen wurde eine plattformunabhängige Web-Applikation **[corticalo](https://corticalo.herokuapp.com/)**  erstellt.
 
+# Vorgehensweise
+
+Nach Analyse und Bewertung der Idee und den daraus resultierenden Nutzenversprechen, wurde analysiert, an welche Kundensegmente sich diese Nutzenversprechen richten. Daraus ergaben sich 3 große Kundensegmente: **Patienten**, **Ärzte** und **Studienleiter**. Zu diesen Segmenten wurden anschließend Personas erstellt, um ein besseres Verständnis zu erlangen. Diese Erkenntnisse wurden anschließend für die technische Implementierung verwendet. Auf eine genauere Beschreibung der Kundensegmente sowie deren Personas wird an dieser Stelle verzichtet. Genauere Informationen finden sie in unserer **Projektskizze**.
+
 # Funktionalität
 
 Der funktionale Umfang enthält grundlegend folgende Komponenten:
@@ -39,7 +43,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 **Als Besucher möchte ich bei weiterführenden Fragen den Service-Provider kontaktieren können**
 
-
+- Implementierung einer Kontaktseite (inkl. Verweis auf Datenschutz und Eingabeüberprüfung). Nach dem Klick auf die Schaltfläche *Senden* erscheint eine Meldung, dass diese erfolgreich versendet wurde (per session())
 
 ## Laravel Sponsors
 
