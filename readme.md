@@ -122,6 +122,14 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 - sofern man die Rechte hat: werden in der Detailansicht des Patienten entsprechende Schaltflächen angezeigt zum Löschen bzw. Bearbeiten des Patienten.
 
+**Als Arzt möchte ich eine Befragung mit meinen Patienten durchführen können**
+
+- eine Befragung startet auf 2 Wegen: vom Dashboard oder von der **[Befragungsübersicht](https://corticalo.herokuapp.com/answers)**, indem man auf die Schaltfläche *Befragung starten* klickt. Es lffnet sich ein Modal, wo man zuerst eine Studie auswählen muss. Danach erscheint ein weiteres Feld, wo man einen entsprechenden CRF auswählen muss (Es werden nur die CRFs angezeigt, die der davor ausgewählten Studie zugeordnet wurden). Wurde noch kein CRF erstellt und der Studie zugeordnet, wird eine Hinweismeldung angezeigt. Ein Klick auf **Befragung starten** öffnet das **Erstellformular** der Befragung. Dort muss man nur noch den gewünschten *Patienten* auswählen und die Fragen durchgehen bzw. beantworten.
+
+**Als Arzt möchte ich meine durchgeführten Befragungen detailliert anschauen, bearbeiten und löschen können**
+
+- möchte ich nachschauen, was ich ausgefüllt habe, kann ich, sofern ich die Rechte habe, über die **Befragungsübersicht** zum jeweiligen beantworteten CRF navigieren. Außerdem werden mir entsprechende Schaltflächen zum Bearbeiten und Löschen angeboten.
+- **Löschen:** erfolgt über einen 2-stufigen Prozess (*session handling*). Bevor der Eintrag endgültig gelöscht wird, gelange ich auf eine Zwischenseite, die mich noch einmal darauf hinweist, dass der Eintrag danach nicht mehr vorhanden ist.
 
 ## Technische Umsetzung
 
