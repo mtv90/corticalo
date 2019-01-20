@@ -40,7 +40,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 - **Hinweis:** Die Registrierung wurde geändert, um den Anforderungen zu entsprechen. Es soll möglich sein, dass sich ein User mit einer vordefinierten Rolle registrieren kann. Diese Rolle muss dafür dem RegisterController mitgegeben werden. Dazu wurde in **vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php** die Funktion **showRegistrationForm()** und die **[Register-View](https://corticalo.herokuapp.com/register)** um die Input-Felder Vorname, Nachname sowie die Select-Box Benutzerrolle erweitert
 - 2-stufiger Eingabe-Prozess mit Formularen inkl. Validierung (session handling) für den **Studienleiter** (Studie anlegen und ggf. einem/mehreren CRFs zuordnen, CRF anlegen und einer/mehreren Studien zuordnen, Fragen erstellen und einem oder mehreren CRFs zuordnen). Die Erstellung der Studie beinhaltet einen 2-stufigen Prozess (Erstellformular-Erstellüberisicht-Persistierung), siehe **[Studie erstellen](https://corticalo.herokuapp.com/studies/create)**. Ein weiterer Prozess mit session handling findet man beim Benutzer mit der Rolle **Arzt**: Löschen einer Befragung. Dazu muss zunächst eine Befragung durchgeführt worden sein. Über die **[Befragungsübersicht](https://corticalo.herokuapp.com/answers)** gelangt man in die Detailansicht einer Befragung, sofern man die nötigen Rechte besitzt, ist eine Löschen-Schaltfläche sichtbar, die zum 2-stufigen Löschprozess führt.
 
-## Use Cases
+## Umgesetzte Use Cases
 
 #### Patient/Besucher
 
@@ -72,7 +72,9 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 **Als Studienleiter möchte ich Case Report Forms (CRF) erstellen können**
 
-- 
+- CRFs lassen sich ähnlich wie Studien erstellen, hier fehlt jedoch der 2-stufige Prozess mit Eingabeüberprüfung und -bestätigung.
+- Existieren bei der Erstellung bereits Studien oder Fragen, dann sind entsprechende Auswahlfelder vorhanden. Ein CRF kann dabei keinem, einem oder mehreren Studien zugeordnet werden. Ein CRF kann keine, eine oder mehrere Fragen beinhalten.
+- legt man den CRF vom Dashboard aus an, bleibt man auf der Dashboard-Seite (Seite wird lediglich neu geladen). Erstellt man einen CRF über den **[Erstellbereich](https://corticalo.herokuapp.com/crfs/create)** wird man anschließend auf die **[CRF-Übersicht](https://corticalo.herokuapp.com/dashboard)** weitergeleitet. In beiden Fällen bekommt man im Anschluss eine Benachrichtigung, ob das Speichern erfolgreich war oder nicht
 
 **Als Studienleiter möchte ich Fragen für meine CRFs erstellen können**
 
