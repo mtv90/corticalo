@@ -149,4 +149,7 @@ Prinzipiell wurde sich nicht ganz an den Vorlesungsplan gehalten. Grund dafür i
 
 - Modellierung der Datenbank
 - Erstellung des Laravel-Projects
-- Umsetzung Model-Schicht: Erzeugung der Models inkl. Migrations sowie Laravel-Auth - Erzeugung einer lokalen Testtabelle - Erste Migration - Erzeugung von Migrations für die Fremdschlüsselbeziehungen (one-to-many, many-to-many) - zweite Migration - Erstellung DatabaseSeeder für Test-/Initialdaten
+- Umsetzung **Model-Schicht:** Erzeugung der Models inkl. Migrations sowie Laravel-Auth - Erzeugung einer lokalen Testtabelle - Erste Migration - Erzeugung von Migrations für die Fremdschlüsselbeziehungen (one-to-many, many-to-many) - zweite Migration - Erstellung DatabaseSeeder für Test-/Initialdaten
+- Umsetzung **Controller-View-Schicht:** Erstellung und Kapselung des Layouts (**resources/views/layouts** und **resources/views/inc**) - Einteilung der Umsetzung in Pakete (in *resources/views/*: Studien **studies**, CRFs **crfs**, Fragen **forms**, Auswahlen **choices**, Patienten **patients**, Befragungen **answers**, Rollen **roles**, Rechte **rights**, User **user**, Willkommensseite **pages**) - Definition der Routes in *routes/web.php*
+- Umsetzung Javascript/Jquery/Ajax
+- Deployment
