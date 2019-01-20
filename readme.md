@@ -31,7 +31,7 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 ## Use Cases
 
-####Patient/Besucher####
+#### Patient/Besucher
 
 **Als Besucher möchte ich von einer Willkommensseite begrüßt und über das Thema sowie den Service-Provider informiert werden können**
 
