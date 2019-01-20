@@ -28,7 +28,7 @@ Nachdem die Basis geschaffen wurde, ging es zur Konzeption. Hierbei wurden zunä
 
 Das Design, insbesondere die Farben und die Navigationsleiste inkl. Menü, konnte vollständig in der Web Applikation realisiert werden. Allerdings wurde, im Vergleich zum Prototyp, auf der **[Startseite](https://corticalo.herokuapp.com/)** das Hintergrundbild durch Partikel ersetzt. Außerdem wurden die nachfolgenden Inhalte (über uns, Funktionen, Anwender, Referenzen wurden nicht umgesetzt, da keine vorhanden sind) auf der Startseite des Prototyps auf Unterseiten aufgeteilt, damit die Ladezeit der Startseite verringert wird. Auf den Unterseiten findet sich das Design des Prototyps wieder, vor allem das Hintergrundbild mit Jumbotron. Ebenfalls wurden die Inhalte ähnlich angeordnet (container mit 3 Spalten und Justify-Content-Center).
 
-Nachfolgend wird zunächst die Funktionalität der Web Applikation beschrieben. Dabei werden, basierend auf den Benutzergruppen/Personas, die entsprechenden **use cases** vorgestellt. Im Anschluss wird erläutert, wie die Web Applikation technisch **[technisch](## Technische Umsetzung)** umgesetzt wurde
+Nachfolgend wird zunächst die Funktionalität der Web Applikation beschrieben. Dabei werden, basierend auf den Benutzergruppen/Personas, die entsprechenden **use cases** vorgestellt (Resultieren aus dem **Produktumfang im Kapitel 4 der Projektskizze**). Im Anschluss wird erläutert, wie die Web Applikation **technisch umgesetzt** wurde.
 
 # Funktionalität
 
@@ -46,11 +46,24 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 **Als Besucher möchte ich von einer Willkommensseite begrüßt und über das Thema sowie den Service-Provider informiert werden können**
 
-- Implementierung einer optisch ansprechenden **[Indexseite](https://corticalo.herokuapp.com/)**, von der man zu den Unterseiten (Funktionen, Anwender, über corticalo, User-Login, Impressum, Datenschutz, Kontakt) navigieren kann.
+- Implementierung einer optisch ansprechenden **[Indexseite](https://corticalo.herokuapp.com/)**, von der man zu den Unterseiten (**Funktionen, Anwender, über corticalo, User-Login, Impressum, Datenschutz, Kontakt**) navigieren kann.
 
 **Als Besucher möchte ich bei weiterführenden Fragen den Service-Provider kontaktieren können**
 
-- Implementierung einer Kontaktseite (inkl. Verweis auf Datenschutz und Eingabeüberprüfung). Nach dem Klick auf die Schaltfläche *Senden* erscheint eine Meldung, dass diese erfolgreich versendet wurde (per session())
+- Implementierung einer Kontaktseite (inkl. Verweis auf Datenschutz und Eingabeüberprüfung). Nach dem Klick auf die Schaltfläche *Senden* erscheint eine Meldung, dass diese erfolgreich versendet wurde (per session(); Nachricht verschwindet beim nächsten Request)
+
+**Als Besucher möchte ich mich einloggen bzw. ggf. registrieren können, um zum eigentlichen Benutzerbereich zu gelangen**
+
+- Eine Authentifizierung ist über den **[User-Login](https://corticalo.herokuapp.com/login)** bzw. eine **[Registrierung](https://corticalo.herokuapp.com/register)** möglich, falls der Benutzer noch keinen Account hat.
+
+#### Studienleiter
+
+**Als Studienleiter möchte ich auf einem Dashboard alle für mich wichtigen Informationen überblicken können**
+
+- Durch die Implementierung eines Benutzerrechtekonzepts lässt sich der Zugriff und die Ansicht bestimmter Bereiche kontrollieren. Welche Rechte man hat, erkennt man bereits an den Inhalten des **[Dashboards](https://corticalo.herokuapp.com/dashboard)**. Im oberen Bereich unterhalb der Navigationsleiste sieht man unter **Eingeloggt als**, mit welcher Rolle man eingeloggt ist (per default gibt es bereits die Rollen **Administrator, Studienleiter und Arzt**, mit jeweils unterschiedlichen Rechten). Des Weiteren werden in der Seitennavigation sowie im Inhaltsbereich des Dashboards nur die Kategorien angezeigt, zu denen man auch die entsprechenden Rechte besitzt!
+
+.. Jede Rolle besitzt bestimmte Rechte. 
+#### Arzt
 
 ## Technische Umsetzung
 
