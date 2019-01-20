@@ -51,7 +51,7 @@ body {
 .jumbosub{
     font-family: subheading, Tahoma, Geneva, sans-serif;
 }
-/* sollte später gelöscht werden */
+
 main{
   
   scroll-behavior: smooth;
@@ -76,7 +76,9 @@ main{
     position: fixed;
     z-index: 1;
 }
-
+.dashBtn{
+    color: rgb(74, 135, 146);
+}
 .userSec a:hover{
     font-weight: bold;
     color: rgb(74, 135, 146);

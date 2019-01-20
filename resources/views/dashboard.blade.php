@@ -436,7 +436,8 @@
 
                 {{-- Zugriffsrechte prüfen--}}
                 @foreach ($role->rights as $right)
-                    @if ($right->resultindex == 1)
+                    @if ($right->stats == 1)
+                    <p>hallo</p>
                         {{-- Beginn Studienübersicht --}}
                         <div class="col-md-4">
                             <div class="card">
@@ -458,7 +459,7 @@
                                                         <td>
                                                             {{-- Zugriffsrechte prüfen--}}
                                                             @foreach ($role->rights as $right)
-                                                                @if ($right->resultshow == 1)
+                                                                @if ($right->stats == 1)
                                                                     <a href="/studies/{{$study->id}}" class="btn btn-sm btn-default border-dark float-right"data-toggle="modal" data-target="#details" name="{{study_id}}" id="study_id" onclick="showDetails({{$study->id}})">
                                                                         <span class="fa fa-eye"></span>
                                                                     </a>

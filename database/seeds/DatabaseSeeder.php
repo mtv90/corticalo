@@ -174,7 +174,7 @@ class DatabaseSeeder extends Seeder
             'rightcreate' => 0,
             'rightedit' => 0,
             'rightdelete' => 0,
-            'stats' => 0,
+            'stats' => 1,
             
         ]);
         DB::table('roles')->insert([
@@ -183,6 +183,30 @@ class DatabaseSeeder extends Seeder
         DB::table('right_role')->insert([
             'right_id' => 3,
             'role_id' => 3
+        ]);
+
+        DB::table('users')->insert([
+            'vorname' => John,
+            'nachname' => Doe,
+            'email' => 'john@doe.com',
+            'password' => bcrypt('secret'),
+            'role_id' => '1'
+        ]);
+
+        DB::table('users')->insert([
+            'vorname' => Peter,
+            'nachname' => Lustig,
+            'email' => 'peter@lustig.com',
+            'password' => bcrypt('secret'),
+            'role_id' => '2'
+        ]);
+
+        DB::table('users')->insert([
+            'vorname' => Max,
+            'nachname' => Muster,
+            'email' => 'max@muster.com',
+            'password' => bcrypt('secret'),
+            'role_id' => '3'
         ]);
 
         DB::table('formats')->insert([
