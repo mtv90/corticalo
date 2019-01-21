@@ -311,7 +311,21 @@ Im Ordner *public/js* finden sich außerdem eine Vielzahl weiterer wichtiger Dat
 - *myScript.js:* ist wichtig für die Implementierung der Partikel auf der Startseite. Dazu werden noch *particle.js und particlejs-config.json* benötigt.
 - *select2Use.js:* ist wichtig, damit die Multiselect-Boxen verwendet werden können (zu finden beim Erstellen einer Studie, wenn man vorhandene CRFs oder Patienten auswählen möchte). Dazu benötigt es die *select2.full.js*-Bibliothek
 
-Weitere wichtige JS-Funktionen finden sich in **resources/assets/js/custom**:
+Weitere wichtige JS-Funktionen finden sich in **resources/assets/js/custom.js**:
 
 Hier sind vor allem asynchrone Löschfunktionen mithilfe von *JQuery* und *axios* implementiert. Diese werden z.B. verwendet, wenn man im Dashboard eine Studie, einen CRF oder eine Frage löschen möchte. Drückt man auf die Löschen-Schaltfläche, erscheint eine Hinweismeldung, die nachfragt, ob man sich sicher ist. Wenn man bestätigt, wird über **axios** ein asynchroner Löschvorgang angestoßen. Hierbei wurde vor allem mit sogenannten Promises gearbeitet:
 - axios ruft einen delete-Request an die angegebene URL auf, war dieser erfolgreich wird der *.then()*-Block ausgeführt, wenn nicht, wird dieser Fehler im *.catch()*-Block aufgefangen. 
+
+Die *custom.js*-Datei wird dann wie die StyleSheets in *resources/assets/sass/* dank Laravel-Mix und Webpack überprüft und optimiert. Die kompilierten Versionen werden dann unter *public/js/app.js* oder *public/css/app.css* abgelegt.
+In der **webpack.mix.js**-Datei kann man außerdem definieren, welche Dateien kompiliert und an welchen Ort die optimierten Versionen abgelegt werden sollen.
+
+
+# Teamwork & Erkenntnisse
+
+Am Anfang stand man vor einem Berg an Arbeit. Einige Use Cases schienen unmöglich zu lösen, vor allem der Fragenbereich sowie der Befragungs- bzw. Antwortbereich. In der ersten Phase hat man daher viel zu gemeinsam analysiert, diskutiert, modelliert und programmiert. Das verringerte die Unsicherheit, deckte Fehler schneller auf und man stieß auf neue Erkenntnisse. Die Lernkurve war bei unserem Projekt äußerst steil. Es gab unzählige Stellen, die einem einen Schritt zurückwarfen, wie das Berechtigungskonzept, doch die Lösung brachte uns anschließend 3 Schritte nach vorn. Am Ende konnten wir uns die Arbeitspakete gut aufteilen, indem der eine bspw. die Startseite bearbeitete und dort leichtere Programmierarbeiten und dafür ungeliebte und zeitaufwendige redaktionelle Arbeiten (verfassen der Texte, Gliederung der Themen und Seiten) verrichtete. Gleichzeitig konnte der andere im Backend aufgetretene Mängel beheben. Ansonsten ließen sich aufgrund des MVC-Ansatzes die Arbeiten gut aufteilen, da das Projekt unterschiedliche Bereiche bzw. Pakete bereithielt (z.B. die Bereiche Studien, CRFs, Fragen, Patienten). Diese konnten am Anfang problemlos simultan implementiert werden.
+
+Insgesamt sind wir sehr zufrieden mit dem Projekt, es war zwar anstrengend, aber es hat dennoch Spaß gemacht.
+Nach unserer internen Lessons Learned konnten wir natürlich einige Baustellen identifizieren, die man in einem zweiten Projekt angehen könnte. Das betrifft vor allem die inhaltliche Konzeption: Der Bereich *klinische Studien* unterliegt strengen gesetzlichen Vorschriften. Gesetzliche Vorgaben, wie ein Audit-Trail (ähnlich einer Versionsverwaltung), konnten aufgrund mangelnder Zeit nicht umgesetzt werden. Dieser Punkt war jedoch nicht im Projektumfang definiert. Weiterer Nachholbedarf besteht in der Usability und User-Experience: mit mehr Zeit und Manpower lassen sich definitiv einige Abläufe optimieren und nutzerfreundlicher gestalten.
+Außerdem besteht Verbesserungspotenzial im Bereich Suchmaschinenmarketing (SEA und SEO) sowie Performance und Security.
+
+Dies sind alles Aspekte, die für einen Go-Live unabdingbar sind und die wir nur anschneiden konnten. Allerdings lag unser Hauptfokus in der Konzeption und Entwicklung einer Web Applikation
