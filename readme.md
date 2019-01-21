@@ -319,6 +319,15 @@ Hier sind vor allem asynchrone Löschfunktionen mithilfe von *JQuery* und *axios
 Die *custom.js*-Datei wird dann wie die StyleSheets in *resources/assets/sass/* dank Laravel-Mix und Webpack überprüft und optimiert. Die kompilierten Versionen werden dann unter *public/js/app.js* oder *public/css/app.css* abgelegt.
 In der **webpack.mix.js**-Datei kann man außerdem definieren, welche Dateien kompiliert und an welchen Ort die optimierten Versionen abgelegt werden sollen.
 
+# Performance und SEO
+
+Die Startseite wurde verschlankt und die Inhalte wurden auf Unterseiten verteilt. Dadurch sollte die Ladezeit der Startseite reduziert werden (nicht sichtbare Bilder werden nicht geladen). Allerdings beanspruchen die Partikel nachwievor viel Ladezeit.
+
+Ansonsten wurden mithilfe von Laravel-Mix Stylesheets und JS-Dateien komprimiert und Bilder wurden im PJPEG-Format gespeichert.
+
+Für die Suchmaschinenoptimierung wurden in den Meta-Tags eine Beschreibung und Stichwörter definiert. Außerdem wurde begonnen auf einschlägigen Seiten wie *Google My Business*, *Bing Local* oder *Yahoo Local* den Service-Provider zu platzieren.
+
+Ob und inwiefern diese Maßnahmen erfolgreich sein werden, lässt sich zum jetzigen Zeitpunkt allerdings nicht feststellen.
 
 # Teamwork & Erkenntnisse
 

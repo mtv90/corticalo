@@ -2,7 +2,7 @@
 
 @section('content')
 @section('title')
-{{ config('app.name', 'corticalo') }} | Willkommen
+{{ config('app.name', 'corticalo') }} | klinische Studien planen, erstellen, durchführen und auswerten
 @stop
 <div class="welcome-cover">
     <div id="particles-js" class="back"></div>
