@@ -36,26 +36,10 @@
             </tbody>
         </table>
     </div>
-    <div class="table-responsive alert border">
-            <table class="table table-hover col-md-12">
-                <h6><strong></strong></h6>
-                <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </thead>
-                <tbody>
-                    @foreach($study->patients as $patient)
-                    <tr>
-                        <td> {{ $patient->panachname }}, {{ $patient->pavorname }}</td>
-                        <td> {{$patient->pageburtsdatum}} </td>
-                        <td> {{$patient->pageburtsort}} </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    @if(!Auth::guest())
+
+    {{-- Für eventuellen Ausbau des Benutzerrechte-Bereiches --}}
+    {{-- --------------------------------- --}}
+    {{-- @if(!Auth::guest())
         @foreach ($rights as $right)
             @if($right->useredit == 1)
                 <a href="/studies/{{$study->id}}/edit" class="btn btn-default border-dark border">
@@ -63,6 +47,6 @@
                 </a>
             @endif   
         @endforeach
-    @endif
+    @endif --}}
 </div>
 @endsection

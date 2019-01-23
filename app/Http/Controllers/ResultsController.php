@@ -431,14 +431,14 @@ class ResultsController extends Controller
 
     public function confirmDelete(Request $request){
         
-        // return $request;
-        // $value = $request->session()->put('result_id', $request->resultID);
+        $value = $request->session()->put('result_id', $request->resultID);
         $data = $request->session()->get('_previous');
         $val;
         foreach ($data as $key => $value) {
             $val = $value;
         }
-        return view('answers.confirm')->with('val', $val);
+    
+        return view('answers.confirm')->with('val', $val)->with('value', $value);
     }
     
     public function destroy(Request $request)

@@ -228,7 +228,6 @@
                
               {{-- --- --}}
 
-              <li class="nav-header">VERWALTUNG</li>
               {{-- Zugriffsberechtigung prüfen --}}
               @if($right->userindex == true)
               <li class="nav-item {{Request::is('user/{$id}') ? 'active border rounded' : ''}}">
@@ -278,49 +277,7 @@
 
               {{-- Navi Benutzergruppen --}}
               {{-- Zugriffsberechtigung prüfen --}}
-              @if($right->usercreate == true)
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-group"></i>
-                  <p>
-                    Benutzergruppen
-                    <i class="fa fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="/groups" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Übersicht</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/groups/create" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Gruppe erstellen</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/login.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Login</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/register.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Register</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/lockscreen.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Lockscreen</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              @endif
+             {{-- Dieser Bereich wurde noch nicht umgesetzt, wäre ein Use Case für Phase 2 --}}
               {{-- Ende Benutzergruppen --}}
             </ul>
             @endforeach

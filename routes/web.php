@@ -88,19 +88,6 @@ Route::resource('rights', 'RightsController');
 /////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-Route::delete('/answers/{id}', 'ResultsController@destroy');
-
 Auth::routes();
 
 

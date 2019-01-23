@@ -120,8 +120,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                    {{-- {{$result->id}} --}}
                     
                     @if(!Auth::guest())
                         @foreach($role->rights as $right)
