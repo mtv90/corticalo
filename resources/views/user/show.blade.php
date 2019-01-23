@@ -17,26 +17,9 @@
             @else
                 <p>Leider hast du noch keine Rechte</p>
             @endif
-            </p>
+        </p>
     </div>
   
-    <div class="table-responsive alert border">
-        <table class="table table-hover col-md-12">
-            <thead>
-                <th></th>
-            </thead>
-            <tbody>
-                @foreach($study->crfs as $crf)
-                <tr> 
-                    <td>
-                        <a href="/crfs/{{$crf->id}}" style="color:black;">{{ $crf->crfName }}</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-
     {{-- Für eventuellen Ausbau des Benutzerrechte-Bereiches --}}
     {{-- --------------------------------- --}}
     {{-- @if(!Auth::guest())
