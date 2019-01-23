@@ -5,7 +5,7 @@
 {{$user->vorname}} {{$user->nachname}}
 @stop
 <div class="col-md-8 offset-md-2 pt-4 pb-4">
-    <h2 class="mb-4">{{$user->name}}</h2>
+    <h2 class="mb-4">{{$user->vorname}} {{$user->nachname}}</h2>
     <hr>
     <div class="col-md-12 alert border">
         <p ><h5 class="col-md-12 alert border">Benutzerrolle: {{ $role->roletype }} </h5></p>
