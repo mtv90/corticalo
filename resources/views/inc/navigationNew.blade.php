@@ -6,7 +6,7 @@
     </div>
     @if(!Auth::guest())
         <div class="userSec">
-            <a title="Benutzer-Dashboard" href="/dashboard" class="{{url('dashBtn')}}"><h2><i class="fa fa-home mt-3"></i></h2></a>
+            <a title="Benutzer-Dashboard" href="/dashboard" class="dashBtn"><h2><i class="fa fa-home mt-3"></i></h2></a>
         </div>
     @endif
     <div class="menubtn"  onclick="openNav()">

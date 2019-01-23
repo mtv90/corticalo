@@ -160,7 +160,7 @@
               {{-- --- --}}
 
               {{-- Zugriffsberechtigung prüfen --}}
-              @if($right->stats == true)
+              {{-- @if($right->stats == true)
                   <li class="nav-item {{Request::is('studies/stats') ? 'active border rounded' : ''}}">
                     <a href="/studies/stats" class="nav-link">
                       <i class="nav-icon fa fa-bar-chart-o"></i>
@@ -169,7 +169,7 @@
                       </p>
                     </a>
                   </li>
-              @endif  
+              @endif   --}}
               {{-- --- --}}
 
               {{-- Zugriffsberechtigung prüfen --}}
