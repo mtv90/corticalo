@@ -30,18 +30,18 @@
                             <ul class="lead pt-2 pb-2 border rounded">
                                 <li><i class="fas fa-check check-icon"></i> Studien erstellen:
                                     <p><small>
-                                        Festlegen von Rahmenbedingungen (Zeit, Budget etc.) <br> <hr>
-                                        Auswahl des Studiendesigns <br> <hr>
-                                        Erstellung von Case Report Forms (eCRF) <br> <hr>
-                                        Definition von Vorgaben (Pflichtfelder, Eingabetyp z.B Text oder Zahl, Wertebereich) <hr>
+                                        Fest&shy;legen von Rahmen&shy;bedingungen (Zeit, Budget etc.) <br> <hr>
+                                        Aus&shy;wahl des Studien&shy;designs <br> <hr>
+                                        Er&shy;stellung von Case Report Forms (eCRF) <br> <hr>
+                                        Defi&shy;nition von Vor&shy;gaben (Pflicht&shy;felder, Eingabe&shy;typ z.B Text oder Zahl, Werte&shy;bereich) <hr>
                                         </small>
                                     </p>
                                 </li> <hr>
                                 <li><i class="fas fa-check check-icon"></i> Studien-Teams verwalten:
                                     <p>
                                         <small>
-                                            Verwaltung von Studien-Teams und Standorten <br> <hr>
-                                            Benutzerrechte-Verwaltung der Teammitglieder <br> <hr>
+                                            Verwaltung von Studien-Teams und Stand&shy;orten <br> <hr>
+                                            Benutzer&shy;rechte-Verwaltung der Team&shy;mitglieder <br> <hr>
                                         </small>
                                     </p>
                                 </li><hr>
@@ -58,7 +58,7 @@
                                         <small>
                                             Studien&shy;teilnehmer zu Studien einladen & informieren <br> <hr>
                                             Patienten verwalten <br> <hr>
-                                            Durchführung der Dokumentation über eCRF <br> <hr>
+                                            Durch&shy;führung der Doku&shy;mentation über eCRF <br> <hr>
                                             Benach&shy;richti&shy;gungs&shy;funktion, Voll&shy;ständigkeits -& Konsistenzprüfung <hr>
                                         </small>
                                     </p>
@@ -66,14 +66,14 @@
                                 <li><i class="fas fa-check check-icon"></i> Studien&shy;versions&shy;kontrolle:
                                     <p>
                                         <small>
-                                            Audit-Trail: Verlaufsdokumentation von erstellten, geänderten oder gelöschten elektronischen Aufzeichnungen <br><hr>
+                                            Audit-Trail: Ver&shy;laufs&shy;doku&shy;menta&shy;tion von er&shy;stellten, geänderten oder gelöschten elek&shy;tronischen Auf&shy;zeichnungen <br><hr>
                                         </small>
                                     </p>
                                 </li><hr>
                                 <li><i class="fas fa-check check-icon"></i> Export von eCRF's:
                                     <p>
                                         <small>
-                                            Export von Prüfbögen und sonstigen Dokumenten in gängige Formate (xls, pdf, csv etc.)
+                                            Export von Prüf&shy;bögen und sonstigen Doku&shy;menten in gängige Formate (xls, pdf, csv etc.)
                                         </small>
                                     </p>
                                 </li>
@@ -87,23 +87,23 @@
                                 <li><i class="fas fa-check check-icon"></i> Erstellung von Reports:
                                     <p>
                                         <small>
-                                            Erstellung von individuellen Berichten <br><hr>
+                                            Erstellung von indi&shy;viduellen Berichten <br><hr>
                                         </small>
                                     </p>
                                 </li><hr>
                                 <li><i class="fas fa-check check-icon"></i> Daten&shy;auswertung:
                                     <p>
                                         <small>
-                                            Wahl verschiedener Daten&shy;ana&shy;lyse&shy;methoden (qualitativ, quantitativ)<br><hr>
-                                            Regressionsanalyse, Assoziationsanalyse, Clusteranalyse, Klassifikation <br> <hr>
+                                            Wahl ver&shy;schiedener Daten&shy;ana&shy;lyse&shy;methoden (qualitativ, quantitativ)<br><hr>
+                                            Regressions&shy;analyse, Assoziations&shy;analyse, Cluster&shy;analyse, Klassifikation <br> <hr>
                                         </small>
                                     </p>
                                 </li><hr>
                                 <li><i class="fas fa-check check-icon"></i> Daten&shy;visualisierung:
                                     <p>
                                         <small>
-                                            Vorauswahl aus verschiedene Tabellen- & Diagrammvorlagen <br> <hr>
-                                            Individuelle Darstellungsmöglichkeit <br>
+                                            Voraus&shy;wahl aus verschiedene Tabellen- & Diagramm&shy;vorlagen <br> <hr>
+                                            Individuelle Dar&shy;stellungs&shy;möglichkeit <br>
                                         </small>
                                     </p>
                                 </li>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <p class="lead alert alert-light">
-                        Sie möchten mehr <a href=" {{url('/about')}} " class="alert-link">über uns</a> und unser Leistungsangebot oder <a href=" {{url('/anwender')}} " class="alert-link">Anwendungsgebiete</a> erfahren? Dann freuen wir uns über ihre <a href=" {{url('/kontakt')}} " class="alert-link"> Kontaktaufnahme</a>
+                        Sie möchten mehr <a href=" {{url('/about')}} " class="alert-link">über uns</a> und unser Lei&shy;stungs&shy;angebot oder <a href=" {{url('/anwender')}} " class="alert-link">An&shy;wendungs&shy;gebiete</a> erfahren? Dann freuen wir uns über ihre <a href=" {{url('/kontakt')}} " class="alert-link"> Kontakt&shy;aufnahme</a>
                     </p>
                 </div>
             </div> 
