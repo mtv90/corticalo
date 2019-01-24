@@ -32,7 +32,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="jumbotron jumbotext">
-                            <h1 class="jumbotitle"><strong>Pharmaunternehmen, klinisches Studienzentrum,Patienten</strong></h1>
+                            <h1 class="jumbotitle"><strong>Pharma&shy;unter&shy;nehmen, klinisches Studien&shy;zentrum, Patienten</strong></h1>
                             <h3 class="lead">von <strong>corticalo</strong> profitieren alle Akteure <em>klinischer Studien</em></h3>
                             <hr class="my-4">
                             <p class="row justify-content-md-center">
