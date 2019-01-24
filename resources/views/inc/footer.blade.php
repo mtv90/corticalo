@@ -7,8 +7,9 @@
         <p>&copy; 2018 <b>corticalo</b></p> <hr>
         <div class="row justify-content-center">
             <small class="mr-2">Folge uns: </small>
-            <small class="mr-1"><a title="Facebook" href=""><i class="fa fa-facebook-square socialmedia"></i></a></small>
-            <small class="mr-1"><a title="Linkedin" href=""><i class="fa fa-linkedin-square socialmedia"></i></a></small>
-            <small class="mr-1"><a title="Xing" href=""><i class="fa fa-xing-square socialmedia"></i></a></small>
+            {{-- Social Media Buttons sind nur symbolisch eingebunden, da keine Profile hinterlegt sind --}}
+            <small class="mr-1"><p title="Facebook"><i class="fa fa-facebook-square socialmedia"></i></p></small>
+            <small class="mr-1"><p title="Linkedin"><i class="fa fa-linkedin-square socialmedia"></i></p></small>
+            <small class="mr-1"><p title="Xing"><i class="fa fa-xing-square socialmedia"></i></p></small>
         </div>
 </footer>

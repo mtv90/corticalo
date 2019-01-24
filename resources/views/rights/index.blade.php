@@ -33,6 +33,7 @@
                                         </p> 
                                     </h3>
                                 </div>
+                                {{-- Dieser Bereich ist noch nicht fertig ausgebaut. Steht auf der Agenda in der Umsetzung Phase 2 --}}
                                 {{-- @if(Auth::user()->id == $right->user_id)
                                     <div class="col-md-2">
                                         <a href="/rights/{{$right->id}}/edit" class="btn btn-default border-dark border">
