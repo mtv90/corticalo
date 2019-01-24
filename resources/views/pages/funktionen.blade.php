@@ -53,17 +53,17 @@
                         <h4 class="index-text text-center"><i class="fas fa-tasks"></i> Durchführung</h4>
                         <p>
                             <ul class="lead pt-2 pb-2 border rounded">
-                                <li><i class="fas fa-check check-icon"></i> Bereitstellen von Studien:
+                                <li><i class="fas fa-check check-icon"></i> Bereit&shy;stellen von Studien:
                                     <p>
                                         <small>
-                                            Studienteilnehmer zu Studien einladen & informieren <br> <hr>
+                                            Studien&shy;teilnehmer zu Studien einladen & informieren <br> <hr>
                                             Patienten verwalten <br> <hr>
                                             Durchführung der Dokumentation über eCRF <br> <hr>
-                                            Benachrichtigungsfunktion, Vollständigkeits -& Konsistenzprüfung <hr>
+                                            Benach&shy;richti&shy;gungs&shy;funktion, Voll&shy;ständigkeits -& Konsistenzprüfung <hr>
                                         </small>
                                     </p>
                                 </li><hr>
-                                <li><i class="fas fa-check check-icon"></i> Studienversionskontrolle:
+                                <li><i class="fas fa-check check-icon"></i> Studien&shy;versions&shy;kontrolle:
                                     <p>
                                         <small>
                                             Audit-Trail: Verlaufsdokumentation von erstellten, geänderten oder gelöschten elektronischen Aufzeichnungen <br><hr>
@@ -91,15 +91,15 @@
                                         </small>
                                     </p>
                                 </li><hr>
-                                <li><i class="fas fa-check check-icon"></i> Datenauswertung:
+                                <li><i class="fas fa-check check-icon"></i> Daten&shy;auswertung:
                                     <p>
                                         <small>
-                                            Wahl verschiedener Datenanalysemethoden (qualitativ, quantitativ)<br><hr>
+                                            Wahl verschiedener Daten&shy;ana&shy;lyse&shy;methoden (qualitativ, quantitativ)<br><hr>
                                             Regressionsanalyse, Assoziationsanalyse, Clusteranalyse, Klassifikation <br> <hr>
                                         </small>
                                     </p>
                                 </li><hr>
-                                <li><i class="fas fa-check check-icon"></i> Datenvisualisierung:
+                                <li><i class="fas fa-check check-icon"></i> Daten&shy;visualisierung:
                                     <p>
                                         <small>
                                             Vorauswahl aus verschiedene Tabellen- & Diagrammvorlagen <br> <hr>
