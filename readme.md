@@ -135,6 +135,16 @@ Der funktionale Umfang enthält grundlegend folgende Komponenten:
 
 - der Admin hat per default alle Rechte. Er kann kann neue Rechte und neue Benutzerrollen erstellen und die Rechte einer Benutzerrolle zuordnen.
 
+
+## Wow-Effekte
+
+- ansprechende Startseite mit sich bewegenden Partikeln
+- Responsives Dashboard
+- Benutzerrechtekonzept
+- Erstellung eines Prüfbogens (CRF): individualisierbar, da man selbst Fragen unterschiedlichsten Typs und Formats erstellen und zuweisen kann, inkl. leichter Plausibilitätsprüfung, da man Wertebereiche und Maßeinheiten vordefinieren kann
+- Mehrfachverwendung von Fragen
+- Mehrfachverwendung von CRFs/Prüfbögen
+
 # Technische Umsetzung
 
 Für die technische Umsetzung wurde zunächst die Datenbank modelliert. Gewisse Tabellen wie **anamnesis oder groups** wurden zwar mit aufgenommen, allerdings wurde diese aufgrund mangelnder Zeit nicht vollständig umgesetzt. Zudem waren sie nicht im vordefinierten Produktumfang enthalten.
