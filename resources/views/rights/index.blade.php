@@ -26,13 +26,14 @@
                         <div class="col-md-12 mt-4">
                             <div class="row border rounded m-2 pt-4 pb-4">
                                 <div class="col-md-8">
-                                    <h3>
-                                        <a href="/rights/{{$right->id}}" class="index-text">
+                                    <h3>  
+                                        {{-- <a href="/rights/{{$right->id}}"></a> --}}
+                                        <p class="index-text">
                                             {{ $right->rightname }} 
-                                        </a> 
+                                        </p> 
                                     </h3>
                                 </div>
-                                @if(Auth::user()->id == $right->user_id)
+                                {{-- @if(Auth::user()->id == $right->user_id)
                                     <div class="col-md-2">
                                         <a href="/rights/{{$right->id}}/edit" class="btn btn-default border-dark border">
                                             <span class="fa fa-cogs"></span> Bearbeiten
@@ -45,7 +46,7 @@
                                             </button>
                                         </span>
                                     </div>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                         @endforeach
