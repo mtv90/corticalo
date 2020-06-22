@@ -3,7 +3,7 @@
 </p>
 
 
-Der Service-Provider **corticalo** vom Projektteam **trial404** ist ein Prototyp für ein Studienmanagementsystem, mit dem Studiengruppen ihre Studien
+Entwicklung eines Prototypen für ein Studienmanagementsystem, mit dem Studiengruppen ihre Studien
 organisieren sowie durchführen können. Kernstück bildet dabei der «electronic case report form» (elektronischer
 Prüfbogen, kurz: eCRF).
 Ziel des gesamten Projekts war es, dass der Studienleiter bzw. die Studiengruppe Fragen verschiedenen Typs
@@ -15,9 +15,7 @@ Prozesse gestrichen werden sollen. Zum Beispiel soll es nicht mehr nötig sein, 
 den Studienteilnehmer postalisch gesendet wird. Des Weiteren muss der Anwender den Prüfbogen nicht mehr
 handschriftlich ausfüllen und wieder per Post zurückschicken. Zu guter Letzt erspart man den Mitarbeitern das
 aufwändige manuelle Einpflegen der Daten in das Auswertungssystem. Alles in allem sollen alle Beteiligten einer
-klinischen Studie enger miteinander verflochten sein und somit besser zusammenarbeiten können. Dieses Ziel
-spiegelt auch der Name des Projekts, «corticalo» (englisch: corticalization, deutsch: Kortikalisierung =
-Verschachtelung von Gehirnfunktionen), wieder.
+klinischen Studie enger miteinander verflochten sein und somit besser zusammenarbeiten können.
 Um das alles zu ermöglichen wurde eine plattformunabhängige Web-Applikation **[corticalo](https://corticalo.herokuapp.com/)**  erstellt.
 
 # Vorgehensweise
