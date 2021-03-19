@@ -326,23 +326,3 @@ Hier sind vor allem asynchrone Löschfunktionen mithilfe von *JQuery* und *axios
 
 Die *custom.js*-Datei wird dann wie die StyleSheets in *resources/assets/sass/* dank Laravel-Mix und Webpack überprüft und optimiert. Die kompilierten Versionen werden dann unter *public/js/app.js* oder *public/css/app.css* abgelegt.
 In der **webpack.mix.js**-Datei kann man außerdem definieren, welche Dateien kompiliert und an welchen Ort die optimierten Versionen abgelegt werden sollen.
-
-# Performance und SEO
-
-Die Startseite wurde verschlankt und die Inhalte wurden auf Unterseiten verteilt. Dadurch sollte die Ladezeit der Startseite reduziert werden (nicht sichtbare Bilder werden nicht geladen). Allerdings beanspruchen die Partikel nachwievor viel Ladezeit.
-
-Ansonsten wurden mithilfe von Laravel-Mix Stylesheets und JS-Dateien komprimiert und Bilder wurden im PJPEG-Format gespeichert.
-
-Für die Suchmaschinenoptimierung wurden in den Meta-Tags eine Beschreibung und Stichwörter definiert. Außerdem wurde begonnen auf einschlägigen Seiten wie *Google My Business*, *Bing Local* oder *Yahoo Local* den Service-Provider zu platzieren.
-
-Ob und inwiefern diese Maßnahmen erfolgreich sein werden, lässt sich zum jetzigen Zeitpunkt allerdings nicht feststellen.
-
-# Teamwork & Erkenntnisse
-
-Am Anfang stand man vor einem Berg an Arbeit. Einige Use Cases schienen unmöglich zu lösen, vor allem der Fragenbereich sowie der Befragungs- bzw. Antwortbereich. In der ersten Phase hat man daher viel zu gemeinsam analysiert, diskutiert, modelliert und programmiert. Das verringerte die Unsicherheit, deckte Fehler schneller auf und man stieß auf neue Erkenntnisse. Die Lernkurve war bei unserem Projekt äußerst steil. Es gab unzählige Stellen, die einem einen Schritt zurückwarfen, wie das Berechtigungskonzept, doch die Lösung brachte uns anschließend 3 Schritte nach vorn. Am Ende konnten wir uns die Arbeitspakete gut aufteilen, indem der eine bspw. die Startseite bearbeitete und dort leichtere Programmierarbeiten und dafür ungeliebte und zeitaufwendige redaktionelle Arbeiten (verfassen der Texte, Gliederung der Themen und Seiten) verrichtete. Gleichzeitig konnte der andere im Backend aufgetretene Mängel beheben. Ansonsten ließen sich aufgrund des MVC-Ansatzes die Arbeiten gut aufteilen, da das Projekt unterschiedliche Bereiche bzw. Pakete bereithielt (z.B. die Bereiche Studien, CRFs, Fragen, Patienten). Diese konnten am Anfang problemlos simultan implementiert werden.
-
-Insgesamt sind wir sehr zufrieden mit dem Projekt, es war zwar anstrengend, aber es hat dennoch Spaß gemacht.
-Nach unserer internen Lessons Learned konnten wir natürlich einige Baustellen identifizieren, die man in einem zweiten Projekt angehen könnte. Das betrifft vor allem die inhaltliche Konzeption: Der Bereich *klinische Studien* unterliegt strengen gesetzlichen Vorschriften. Gesetzliche Vorgaben, wie ein Audit-Trail (ähnlich einer Versionsverwaltung), konnten aufgrund mangelnder Zeit nicht umgesetzt werden. Dieser Punkt war jedoch nicht im Projektumfang definiert. Weiterer Nachholbedarf besteht in der Usability und User-Experience: mit mehr Zeit und Manpower lassen sich definitiv einige Abläufe optimieren und nutzerfreundlicher gestalten.
-Außerdem besteht Verbesserungspotenzial im Bereich Suchmaschinenmarketing (SEA und SEO) sowie Performance und Security.
-
-Dies sind alles Aspekte, die für einen Go-Live unabdingbar sind und die wir nur anschneiden konnten. Allerdings lag unser Hauptfokus in der Konzeption und Entwicklung einer Web Applikation
