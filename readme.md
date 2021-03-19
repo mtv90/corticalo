@@ -1,8 +1,3 @@
-<p align="center">
-<img src="public/images/newLogo.png" alt="corticalo logo">
-</p>
-
-
 Entwicklung eines Prototypen für ein Studienmanagementsystem, mit dem Studiengruppen ihre Studien
 organisieren sowie durchführen können. Kernstück bildet dabei der «electronic case report form» (elektronischer
 Prüfbogen, kurz: eCRF).
